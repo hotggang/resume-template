@@ -1,6 +1,158 @@
 @charset "utf-8";
 
-/* test */
-p{
-    color: brown;
+*{
+    padding: 0; margin: 0; box-sizing: border-box;
+    font-size: 16px; 
+    list-style: none;
+}
+a { text-decoration: none; }
+img { display: blocks; }
+
+body{
+    background-color: #E7E9EB;
+
+    /* font */
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+
+.main {
+    width: 100%;
+    max-width: 65rem;
+    margin: 0 auto;
+    padding: 40px;
+}
+.tab_content{
+    position: relative;
+    width: 100%;
+    max-width: 65rem;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: #1f1f1f;
+    overflow: hidden;
+}
+.tab_content > div{
+    padding: 96px 104px;
+    line-height: 1.5;
+    font-size: 17px;
+}
+
+/* button (디자인을 교차로 보기 위한 요소입니다) */
+.tab{ 
+    display: flex;
+    padding: 0 0 40px 0;
+}
+.tab li a{
+    display: block;
+    width: 120px; height: 40px;
+    border: solid 2px #1f1f1f;
+    border-radius: 20px;
+    font-weight: 800;
+    color: #1f1f1f;
+    text-align: center;
+    line-height: 35px;
+}
+.tab li:first-child{ margin: 0 30px 0 0; }
+.tab li a.active{
+    background-color: #1f1f1f;
+    color: #f1f1f1;
+    transition: all 0.3s;
+}
+.tab_content > div{ display: none; }
+.tab_content > div.active{ display: block; }
+
+
+/* background */
+.tab_content{
+    background-image: url(img/mintuniverse_blur1.png);
+    background-repeat: no-repeat;
+}
+.bg_img{
+    position: absolute;
+    left: -300px;
+
+    > img{
+        width: 800px;
+    }
+}
+
+
+/* contents */
+
+/* 상단부 - 타이틀 */
+.simple{
+    margin: 0 0 48px 0;
+    display: flex;
+}
+.simple > img{
+    width: 262px;
+    height: 150px;
+    position: relative;
+    right: 50px;
+}
+.title{
+    display: inline-block;
+    position: relative;
+    right: 50px;
+}
+.title .name{
+    margin: 0 0 20px 0;
+    font-size: 40px;
+    font-weight: 600;
+    color: #fff;
+}
+.title .position{
+    margin: 0 0 15px 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+}
+.title .position_tag{
+    display: flex;
+}
+.title .position_tag div{
+    background-color: #B3FAEF;
+    border-radius: 20px;
+    margin: 0 10px 0 0;
+    padding: 6px 15px;
+    font-weight: 400;
+    font-size: 14px
+}
+
+/* profile */
+.profile .profile_title{
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 30px;
+    height: 55px;
+    background-color: #B3FAEF;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.profile .profile_title h2{
+    font-size: 20px;
+    line-height: 55px;
+}
+.profile .profile_title img{
+    width: 20px;
+    height: 20px;
+    margin: 0 0 0 15px;
+}
+.profile_content{
+    width: 100%;
+    display: flex;
+    padding: 22px 0 22px 30px;
+    flex-direction: column;
+    border: solid 1px #f1f1f1;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.profile_content .line{
+    display: flex;
+    margin: 0 0 20px 0;
+}
+.profile_content .tag{
+    font-size: 15px;
+    font-weight: 600;
+    color: #d9d9d9;
 }
