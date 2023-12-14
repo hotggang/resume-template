@@ -1,0 +1,86 @@
+@import "../base/var";
+@import "../base/mixin";
+
+.universe__main{
+    width: 100%;
+    max-width: 65rem;
+    margin: 0 auto;
+    padding: 40px;
+
+    .active{
+        //header 
+        .universe__content-header{
+            margin: 0 0 48px 0;
+            display: flex;
+
+            & > img{
+                width: 262px;
+                height: 150px;
+                position: relative;
+                right: 50px;
+            }
+
+            .universe__content-headerTitle{
+                display: inline-block;
+                position: relative;
+                right: 50px;
+
+                .universe__content-headerTitle-name{
+                    @include headerName();
+                }
+                .universe__content-headerTitle-position{
+                    @include headerPosition();
+                }
+                .universe__content-headerTitle-positionTag{
+                    display: flex
+                }
+                .universe__content-headerTitle-positionTag div{
+                    @include headerTag();
+                }
+            }
+        }
+
+        .universe__content-profile{
+
+            .universe__content-profileTitle{
+                @include categoryTitleSection();
+
+                h2{
+                    @include categoryTitle();
+                }
+                img{
+                    width: 20px;
+                    height: 20px;
+                    margin: 0 0 0 15px;
+                }
+            }
+
+            .universe__content-profileContent{
+                @include categoryContents();
+
+                .universe__content-profileContent-tag, .universe__content-profileContent-content{
+                    display: flex;
+                    flex-direction: column;
+
+                    h3{
+                        margin: 0 0 20px 0;
+                    }
+                }
+                .universe__content-profileContent-tag{
+                    margin: 0 80px 0 0;
+                    h3{
+                        font-size: 15px;
+                        color: $tagColor;
+                    }
+                }
+                .universe__content-profileContent-content{
+
+                    h3{
+                        font-size: 15px;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
