@@ -10,6 +10,9 @@ dependencies:
     version: 4.7.8
 
 devDependencies:
+  husky:
+    specifier: ^8.0.3
+    version: 8.0.3
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
@@ -31,6 +34,12 @@ packages:
     optionalDependencies:
       uglify-js: 3.17.4
     dev: false
+
+  /husky@8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}

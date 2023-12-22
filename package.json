@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "tsc": "tsc",
-    "build": "tsc && http-server"
+    "build": "tsc && http-server",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "handlebars": "^4.7.8"
   },
   "devDependencies": {
+    "husky": "^8.0.0",
     "lodash": "^4.17.21",
     "typescript": "^5.3.3"
   }
