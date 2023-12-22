@@ -14,10 +14,11 @@
 
         <!-- font -->
         <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
     </head>
     <body>
-        <div class="universe__main">
+        <main class="universe__main">
             <ul class="universe__tab">
                 <li><a href="#" class="active">type 01</a></li>
                 <li><a href="#">type 02</a></li>
@@ -27,12 +28,12 @@
                     <div class="universe__content-header">
                         <img src="img/mintuniverse_profile.png" alt="프로필 영역">
                         <div class="universe__content-headerTitle">
-                            <div class="universe__content-headerTitle-name">성은주</div>
-                            <div class="universe__content-headerTitle-position">UIUX디자이너</div>
-                            <div class="universe__content-headerTitle-positionTag">
-                                <div>#FIGMA</div>
-                                <div>#PHOTOSHOP</div>
-                                <div>#ILLUSTRATOR</div>
+                            <div class="universe__content-headerTitle-name">{{name}}</div>
+                            <div class="universe__content-headerTitle-position">{{job}}</div>
+                            <div class="universe__content-headerTitle-positionTag">                                
+                                {{#each techStack.skills}}
+                                    <div>#{{this}}</div>
+                                {{/each}}                                
                             </div>
                         </div>
                     </div>
@@ -48,9 +49,9 @@
                                 <h3>주소</h3>
                             </div>
                             <div class= "universe__content-profileContent-content">
-                                <h3>+82 01012345678</h3>
-                                <h3>sample_xx_123@gmail.com</h3>
-                                <h3>대한민국 서울특별시 구로구 임의로 1길 23 가상중앙센트럴아파트 4567동 8910호</h3>
+                                <h3>+{{countryNumber}} {{phoneNumber}}</h3>
+                                <h3>{{email}}</h3>
+                                <h3>{{addressMain}} {{addressBuildingName}}</h3>
                             </div>
                         </div>
                     </div>
@@ -80,6 +81,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
+        
     </body>
+    <script type="module" src="compile.js" defer></script> 
 </html>
