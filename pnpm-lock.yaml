@@ -11,7 +11,7 @@ dependencies:
 
 devDependencies:
   husky:
-    specifier: ^8.0.3
+    specifier: ^8.0.0
     version: 8.0.3
   lodash:
     specifier: ^4.17.21
