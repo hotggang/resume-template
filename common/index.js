@@ -1,5 +1,6 @@
-import { compile, eventManager } from '../dist/src/compile.js';
+import compile from '../dist/src/compile.js';
 import { initData } from '../dist/src/data.js';
+import { eventManager } from '../dist/src/settingEvents.js';
 import T_settings from './T_settings.js';
 
 (() => {
