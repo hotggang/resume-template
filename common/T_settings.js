@@ -8,11 +8,11 @@ const T_settings = `
 			<p>데이터를 관리합니다.</p>
 			<form class="settings__form">
 				<section class="settings__basic">
-					<input type="checkbox" id="settings__basic-name-toggle" />
+					<input type="checkbox" id="settings__basic-name-toggle" checked />
 					<label for="settings__basic-name-toggle">name</label>
-					<input type="checkbox" id="settings__basic-job-toggle" />
+					<input type="checkbox" id="settings__basic-job-toggle" checked />
 					<label for="settings__basic-job-toggle">job</label>
-					<input type="checkbox" id="settings__basic-email-toggle" />
+					<input type="checkbox" id="settings__basic-email-toggle" checked />
 					<label for="settings__basic-email-toggle">email</label>
 				</section>
 			</form>

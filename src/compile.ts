@@ -26,7 +26,7 @@ const compile = async (
 				source,
 				data,
 				callback: (selector: HTMLInputElement) => {
-					data.name = selector.checked ? '테스트' : '';
+					data.name = selector.checked ? '김랠릿' : '';
 				},
 			},
 			{
@@ -34,7 +34,7 @@ const compile = async (
 				source,
 				data,
 				callback: (selector: HTMLInputElement) => {
-					data.job = selector.checked ? '테스트' : '';
+					data.job = selector.checked ? 'UI/UX 디자이너' : '';
 				},
 			},
 			{
@@ -42,7 +42,7 @@ const compile = async (
 				source,
 				data,
 				callback: (selector: HTMLInputElement) => {
-					data.email = selector.checked ? '테스트' : '';
+					data.email = selector.checked ? 'rallit@inflab.com' : '';
 				},
 			},
 		],
