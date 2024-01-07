@@ -1,4 +1,4 @@
-import { compile } from '../dist/src/compile.js';
+import { compile, eventManager } from '../dist/src/compile.js';
 import { initData } from '../dist/src/data.js';
 import T_settings from './T_settings.js';
 
@@ -10,6 +10,8 @@ import T_settings from './T_settings.js';
 	// 기존 handlebar 문법의 코드 저장
 	const source = document.querySelector('.universe__content').innerHTML;
 
+	const initEventManager = eventManager();
+
 	// 최초 handlerbar 컴파일
-	compile(source, initData);
+	compile(source, initData, initEventManager);
 })();

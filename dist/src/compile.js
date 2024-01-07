@@ -1,5 +1,4 @@
-import Handlebars from 'handlebars';
-export const compile = async (source, data) => {
+export const compile = async (source, data, removeEvents) => {
     const $content = document.querySelector('.universe__content');
     // handlebar 실행
     const template = Handlebars.compile(source);
@@ -7,23 +6,76 @@ export const compile = async (source, data) => {
         return;
     }
     $content.innerHTML = template(data);
+    console.log('compile', removeEvents.events.length);
     // 이벤트 새로 생성
-    E_basicSections(source, data);
+    E_Settings([
+        {
+            selectorString: '#settings__basic-name-toggle',
+            source,
+            data,
+            callback: (selector) => {
+                data.name = selector.checked ? '테스트' : '';
+            },
+        },
+        {
+            selectorString: '#settings__basic-job-toggle',
+            source,
+            data,
+            callback: (selector) => {
+                data.job = selector.checked ? '테스트' : '';
+            },
+        },
+        {
+            selectorString: '#settings__basic-email-toggle',
+            source,
+            data,
+            callback: (selector) => {
+                data.email = selector.checked ? '테스트' : '';
+            },
+        },
+    ], removeEvents);
 };
-// compile 할 때 마다 새로 이벤트를 생성
-export const E_basicSections = (source, data) => {
-    const $name = document.querySelector('#settings__basic-name-toggle');
-    if ($name === undefined || $name === null) {
-        return;
-    }
-    const handleChecked = function check() {
-        // 데이터 변경
-        data.name = $name.checked ? '테스트' : '';
-        // 변경된 데이터로 handlebar 컴파일
-        compile(source, data);
-        // 실행되고 있는 현재 이벤트 제거
-        $name.removeEventListener('change', check);
+export const E_Settings = (data, removeEvents) => {
+    const events = setEvents(data, removeEvents);
+    console.log('after setEvents', removeEvents.events.length);
+    events.map(({ selector, handleChecked }) => {
+        selector.addEventListener('change', handleChecked);
+    });
+};
+const setEvents = (events, removeEvents) => {
+    return events.map(({ selectorString, source, data, callback }) => {
+        const $input = document.querySelector(selectorString);
+        if ($input === undefined || $input === null) {
+            throw new Error('존재하지 않는 element 입니다.');
+        }
+        const handleChecked = () => {
+            // 데이터 변경
+            callback($input);
+            console.log('handleChecked');
+            // 기존 이벤트 제거
+            removeEvents.events.forEach((removeEvent) => {
+                removeEvent();
+            });
+            removeEvents.reset(events.length);
+            // 변경된 데이터로 handlebar 컴파일
+            compile(source, data, removeEvents);
+        };
+        removeEvents.push(() => {
+            $input.removeEventListener('change', handleChecked);
+            console.log('remove', 'remove callback');
+        });
+        return { selector: $input, handleChecked: handleChecked };
+    });
+};
+export const resetEvents = () => {
+    let events = [];
+    const reset = function (remainingCount) {
+        events.splice(0, remainingCount);
+        return events;
     };
-    // 이벤트 생성
-    $name.addEventListener('change', handleChecked);
+    const push = function (event) {
+        events.push(event);
+        return events;
+    };
+    return { events, reset, push };
 };
