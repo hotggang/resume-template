@@ -1,12 +1,19 @@
 import {
 	Activity,
+	Certificate,
 	Education,
 	ForeignLanguage,
+	FreeQuestionAnswer,
 	PortfolioAttachFile,
 	Project,
 	ResumeTemplate,
+	TechStack,
 	WorkExperience,
-} from './type';
+} from './type.js';
+
+export const TECH_STACK: TechStack = {
+	skills: ['React', 'Photoshop', 'Javascript'],
+};
 
 export const WORK_EXPERIENCE: WorkExperience = {
 	companyName: 'ABC Corp',
@@ -55,7 +62,19 @@ export const EDUCATION: Education = {
 	enrollmentEndedAt: '2020-01-01',
 };
 
-export const initData: ResumeTemplate = {
+export const CERTIFICATE: Certificate = {
+	certificateName: '정보처리기사',
+	certificateGrade: '1급',
+	certificatedAt: '2023',
+	certificateOrganization: '대한 상공회의소',
+};
+
+export const FREE_QUESTION_ANSWER: FreeQuestionAnswer = {
+	question: '질문',
+	answer: '답변',
+};
+
+export const initResumeData: ResumeTemplate = {
 	name: '김랠릿',
 	job: 'UIUX디자이너',
 	email: 'rallit@inflab.com',

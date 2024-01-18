@@ -1,3 +1,4 @@
+import { initResumeData } from './data.js';
 import { E_Settings } from './settingEvents.js';
 const compile = async (source, data, eventManager) => {
     const $content = document.querySelector('.universe__content');
@@ -12,7 +13,7 @@ const compile = async (source, data, eventManager) => {
             source,
             data,
             callback: (selector) => {
-                data.name = selector.checked ? '테스트' : '';
+                data.name = selector.checked ? initResumeData['name'] : '';
             },
         },
         {
@@ -20,7 +21,7 @@ const compile = async (source, data, eventManager) => {
             source,
             data,
             callback: (selector) => {
-                data.job = selector.checked ? '테스트' : '';
+                data.job = selector.checked ? initResumeData['job'] : '';
             },
         },
         {
@@ -28,7 +29,7 @@ const compile = async (source, data, eventManager) => {
             source,
             data,
             callback: (selector) => {
-                data.email = selector.checked ? '테스트' : '';
+                data.email = selector.checked ? initResumeData['email'] : '';
             },
         },
     ], eventManager);

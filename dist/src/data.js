@@ -1,3 +1,6 @@
+export const TECH_STACK = {
+    skills: ['React', 'Photoshop', 'Javascript'],
+};
 export const WORK_EXPERIENCE = {
     companyName: 'ABC Corp',
     departmentName: 'Web Development',
@@ -38,10 +41,20 @@ export const EDUCATION = {
     enrollmentStartedAt: '2020-01-01',
     enrollmentEndedAt: '2020-01-01',
 };
-export const initData = {
+export const CERTIFICATE = {
+    certificateName: '정보처리기사',
+    certificateGrade: '1급',
+    certificatedAt: '2023',
+    certificateOrganization: '대한 상공회의소',
+};
+export const FREE_QUESTION_ANSWER = {
+    question: '질문',
+    answer: '답변',
+};
+export const initResumeData = {
     name: '김랠릿',
     job: 'UIUX디자이너',
-    email: 'sample_xx_123@gmail.com',
+    email: 'rallit@inflab.com',
     countryNumber: '82',
     phoneNumber: '01012345678',
     addressMain: '서울특별시 구로구 임의로 1길',

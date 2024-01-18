@@ -1,114 +1,116 @@
+export type TechStack = {
+	skills: string[];
+};
+
 export type WorkExperience = {
-  companyName: string;
-  departmentName: string;
-  role: string;
-  workType: string;
-  employmentStatus: string;
-  workStartedAt?: string;
-  workEndedAt?: string;
-  assignedTask?: string;
+	companyName: string;
+	departmentName: string;
+	role: string;
+	workType: string;
+	employmentStatus: string;
+	workStartedAt?: string;
+	workEndedAt?: string;
+	assignedTask?: string;
 };
 
 export type ForeignLanguage = {
-  foreignLanguageName: string;
-  foreignLanguageGrade: string;
+	foreignLanguageName: string;
+	foreignLanguageGrade: string;
 };
 
 export type Project = {
-  projectName: string;
-  projectStatus: string;
-  projectStartedAt: string;
-  projectEndedAt: string;
-  projectDescription: string;
-  projectOrganization: string;
+	projectName: string;
+	projectStatus: string;
+	projectStartedAt: string;
+	projectEndedAt: string;
+	projectDescription: string;
+	projectOrganization: string;
 };
 
 export type PortfolioAttachFile = {
-  attachFileName: string;
-  attachFileUrl: string;
-  attachFileUploadedAt: string;
+	attachFileName: string;
+	attachFileUrl: string;
+	attachFileUploadedAt: string;
 };
 
 export type Activity = {
-  activityName: string;
-  activityYear: string;
-  activityDescription: string;
-  activityOrganization: string;
+	activityName: string;
+	activityYear: string;
+	activityDescription: string;
+	activityOrganization: string;
 };
 
 export type Education = {
-  schoolType: string;
-  schoolName: string;
-  major: string;
-  graduationStatus: string;
-  enrollmentStartedAt: string;
-  enrollmentEndedAt: string;
+	schoolType: string;
+	schoolName: string;
+	major: string;
+	graduationStatus: string;
+	enrollmentStartedAt: string;
+	enrollmentEndedAt: string;
 };
 
 export type Certificate = {
-  certificateName: string;
-  certificateGrade: string;
-  certificatedAt: string;
-  certificateOrganization: string;
+	certificateName: string;
+	certificateGrade: string;
+	certificatedAt: string;
+	certificateOrganization: string;
 };
 
 export type FreeQuestionAnswer = {
-  question: string;
-  answer: string;
+	question: string;
+	answer: string;
 };
 
 export type ResumeTemplate = {
-  name: string;
+	name: string;
 
-  job: string;
+	job: string;
 
-  email: string;
+	email: string;
 
-  countryNumber?: string;
+	countryNumber?: string;
 
-  phoneNumber?: string;
+	phoneNumber?: string;
 
-  addressMain?: string;
+	addressMain?: string;
 
-  addressBuildingName?: string;
+	addressBuildingName?: string;
 
-  zipCode?: string;
+	zipCode?: string;
 
-  coverLetter: string;
+	coverLetter: string;
 
-  profileImage: string;
+	profileImage: string;
 
-  techStack: {
-    skills: string[];
-  };
+	techStack: TechStack;
 
-  workExperiences: WorkExperience[];
+	workExperiences: WorkExperience[];
 
-  projects: Project[];
+	projects: Project[];
 
-  portfolio?: {
-    links: string[];
-    attachFiles: PortfolioAttachFile[];
-  };
+	portfolio?: {
+		links: string[];
+		attachFiles: PortfolioAttachFile[];
+	};
 
-  foreignLanguages: ForeignLanguage[];
+	foreignLanguages: ForeignLanguage[];
 
-  activities: Activity[];
+	activities: Activity[];
 
-  introduce: string;
+	introduce: string;
 
-  educations: Education[];
+	educations: Education[];
 
-  resumeSequence: Record<string, number>;
+	resumeSequence: Record<string, number>;
 
-  certificates: Certificate[];
+	certificates: Certificate[];
 
-  // 지원자에게 묻는 질문
-  freeQuestionAnswers?: FreeQuestionAnswer[];
+	// 지원자에게 묻는 질문
+	freeQuestionAnswers?: FreeQuestionAnswer[];
 
-  createdAt?: string;
+	createdAt?: string;
 
-  templateTheme?: string;
+	templateTheme?: string;
 
-  cdnDomain: string;
+	cdnDomain: string;
 };

@@ -1,4 +1,5 @@
-import { EventManager, E_Settings } from './settingEvents.js';
+import { initResumeData } from './data.js';
+import { E_Settings, EventManager } from './settingEvents.js';
 import { ResumeTemplate } from './type.js';
 
 declare const Handlebars: any;
@@ -26,7 +27,7 @@ const compile = async (
 				source,
 				data,
 				callback: (selector: HTMLInputElement) => {
-					data.name = selector.checked ? '김랠릿' : '';
+					data.name = selector.checked ? initResumeData['name'] : '';
 				},
 			},
 			{
@@ -34,7 +35,7 @@ const compile = async (
 				source,
 				data,
 				callback: (selector: HTMLInputElement) => {
-					data.job = selector.checked ? 'UI/UX 디자이너' : '';
+					data.job = selector.checked ? initResumeData['job'] : '';
 				},
 			},
 			{
@@ -42,7 +43,7 @@ const compile = async (
 				source,
 				data,
 				callback: (selector: HTMLInputElement) => {
-					data.email = selector.checked ? 'rallit@inflab.com' : '';
+					data.email = selector.checked ? initResumeData['email'] : '';
 				},
 			},
 		],
