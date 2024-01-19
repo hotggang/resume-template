@@ -6,7 +6,7 @@ import {
 	FREE_QUESTION_ANSWER,
 	PORTFOLIO_ATTACH_FILE,
 	PROJECT,
-	WORK_EXPERIENCE,
+	WORK_EXPERIENCES,
 } from './data.js';
 
 const sectionName = {
@@ -107,11 +107,10 @@ const generateResumeSection = (
 };
 
 export const T_list_sections = () => {
-	// TODO: techStack, portfolioLinks, introduce 별도 처리
 	const sections = [
 		T_BasicSection,
 		T_TechStackSection,
-		generateResumeSection('workExperiences', WORK_EXPERIENCE),
+		generateResumeSection('workExperiences', WORK_EXPERIENCES[0]),
 		generateResumeSection('foreignLanguages', FOREIGN_LANGUAGE),
 		generateResumeSection('projects', PROJECT),
 		generateResumeSection('portfolioAttachFile', PORTFOLIO_ATTACH_FILE),

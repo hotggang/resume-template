@@ -15,16 +15,29 @@ export const TECH_STACK: TechStack = {
 	skills: ['React', 'Photoshop', 'Javascript'],
 };
 
-export const WORK_EXPERIENCE: WorkExperience = {
-	companyName: 'ABC Corp',
-	departmentName: 'Web Development',
-	role: 'Frontend Developer',
-	workType: '업무 타입1',
-	employmentStatus: '업무 상태1',
-	workStartedAt: '2019-01-01',
-	assignedTask:
-		'Developed and maintained client-facing web applications using React and Redux.',
-};
+export const WORK_EXPERIENCES: WorkExperience[] = [
+	{
+		companyName: 'ABC Corp',
+		departmentName: 'Web Development',
+		role: 'Frontend Developer',
+		workType: '업무 타입1',
+		employmentStatus: '업무 상태1',
+		workStartedAt: '2019-01-01',
+		workEndedAt: '2023-02-01',
+		assignedTask:
+			'Developed and maintained client-facing web applications using React and Redux.',
+	},
+	{
+		companyName: '금빛 도서관',
+		departmentName: '디자인팀',
+		role: '주임',
+		workType: '정규직',
+		employmentStatus: '재직 중',
+		workStartedAt: '2023-01-01',
+		workEndedAt: '2023-02-01',
+		assignedTask: '무슨 말을 길게 써야 있어보일까',
+	},
+];
 
 export const FOREIGN_LANGUAGE: ForeignLanguage = {
 	foreignLanguageName: 'English',
@@ -88,17 +101,7 @@ export const initResumeData: ResumeTemplate = {
 	techStack: {
 		skills: ['FIGMA', 'PHOTOSHOP', 'ILLUSTRATOR'],
 	},
-	workExperiences: [
-		{
-			companyName: '',
-			departmentName: '',
-			role: '',
-			workType: '',
-			employmentStatus: '',
-			workStartedAt: '',
-			assignedTask: '',
-		},
-	],
+	workExperiences: [WORK_EXPERIENCES[0]],
 	foreignLanguages: [
 		{
 			foreignLanguageName: '',
