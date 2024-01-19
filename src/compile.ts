@@ -115,9 +115,9 @@ const eventsWithCheckbox = (source: string, data: ResumeTemplate) => {
 				data,
 				callback: (selector: HTMLInputElement) => {
 					if (section === 'basic' || section === 'introduce') {
-						data[section][itemKey] = selector.checked
-							? itemsBySection[itemKey]
-							: '';
+						data[itemKey] = selector.checked ? itemsBySection[itemKey] : '';
+
+						return;
 					}
 
 					if (data[section].length === 0) {
