@@ -19,28 +19,30 @@
                 position: relative;
                 right: 50px;
             }
+        }
 
-            .universe__content-headerTitle{
-                display: inline-block;
-                position: relative;
-                right: 50px;
+        .universe__content-headerTitle{
+            display: inline-block;
+            position: relative;
+            right: 50px;
 
-                .universe__content-headerTitle-name{
-                    @include headerName();
-                }
-                .universe__content-headerTitle-position{
-                    @include headerPosition();
-                }
-                .universe__content-headerTitle-positionTag{
-                    display: flex
-                }
-                .universe__content-headerTitle-positionTag div{
-                    @include headerTag();
-                }
+            .universe__content-headerTitle-name{
+                @include headerName();
+            }
+            .universe__content-headerTitle-position{
+                @include headerPosition();
+            }
+            .universe__content-headerTitle-positionTag{
+                display: flex
+            }
+            .universe__content-headerTitle-positionTag div{
+                @include headerTag();
             }
         }
 
         .universe__content-profile{
+
+            margin: 0 0 50px 0;
 
             .universe__content-profileTitle{
                 @include categoryTitleSection();
@@ -56,28 +58,22 @@
             }
 
             .universe__content-profileContent{
-                @include categoryContents();
+                width: 100%;
+                padding: 22px 30px 22px 30px;
+                border: solid 1px $borderColor;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
 
-                .universe__content-profileContent-tag, .universe__content-profileContent-content{
+                .universe__content-profileContent-number, .universe__content-profileContent-mail, .universe__content-profileContent-address{
                     display: flex;
-                    flex-direction: column;
+                    margin: 0 0 20px 0;
 
-                    h3{
-                        margin: 0 0 20px 0;
+                    &:last-child{
+                        margin: 0;
                     }
-                }
-                .universe__content-profileContent-tag{
-                    margin: 0 80px 0 0;
-                    h3{
-                        font-size: 15px;
-                        color: $tagColor;
-                    }
-                }
-                .universe__content-profileContent-content{
 
-                    h3{
-                        font-size: 15px;
-                        color: #fff;
+                    .tag{
+                        width: 20%;
                     }
                 }
             }
@@ -116,7 +112,7 @@
             border-radius: 10px;
             border-color: $mainColor;
 
-            .universe__content-category-career{
+            /* .universe__content-category-career{
 
                 width: 100%;
                 margin: 0 0 50px 0;
@@ -187,7 +183,9 @@
                         }
                     }
                 }
-            }
+            } */
+
+            /* Depth 3 이상 가지 않도록 처리 */
         }
     }
 }

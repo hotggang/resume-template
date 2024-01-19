@@ -10,7 +10,6 @@
 
 		<!-- jquery -->
 		<script src="jquery-3.6.4.min.js"></script>
-		<script src="main.js"></script>
 
 		<!-- font -->
 		<link
@@ -25,7 +24,6 @@
 		<main class="universe__main">
 			<ul class="universe__tab">
 				<li><a href="#" class="active">type 01</a></li>
-				<li><a href="#">type 02</a></li>
 			</ul>
 			<section id="common__data-settings"></section>
 			<div class="universe__content">
@@ -48,18 +46,52 @@
 							<img src="img/mintuniverse_arrow.png" alt="arrow" />
 						</div>
 						<div class="universe__content-profileContent">
-							<div class="universe__content-profileContent-tag">
-								<h3>연락처</h3>
-								<h3>메일</h3>
-								<h3>주소</h3>
-							</div>
-							<div class="universe__content-profileContent-content">
+							<div class="universe__content-profileContent-number">
+								<h3 class="tag">연락처</h3>
 								<h3>+{{countryNumber}} {{phoneNumber}}</h3>
+							</div>
+							<div class="universe__content-profileContent-mail">
+								<h3 class="tag">메일</h3>
 								<h3>{{email}}</h3>
+							</div>
+							<div class="universe__content-profileContent-address">
+								<h3 class="tag">주소</h3>
 								<h3>{{addressMain}} {{addressBuildingName}}</h3>
 							</div>
 						</div>
 					</div>
+					<div class="universe__content-introduce">
+                        <div class="universe__content-introduceTitle">
+                            <h2>한 줄 소개</h2>
+                            <img src="img/mintuniverse_arrow.png" alt="arrow">
+                        </div>
+                        <div class="universe__content-introduceContent">
+                            <h3>{{introduce}}</h3>
+                        </div>
+                    </div>
+                    <div class="universe__content-category">
+                        <div class="universe__content-category-career">
+                            <div class="universe__content-category-careerTitle">
+                                <h3 class="careerTitle">경력</h3>
+                            </div>
+                            <div class="universe__content-category-careerContent">
+                                <div class="universe__content-category-careerContent-main">
+                                    <h3 class="company">{{company}}</h3>
+                                    <div class="universe__content-category-careerContent-sub">
+                                        <h3 class="position">{{position}}</h3>
+                                        <h3 class="belong">{{belong}}</h3>
+                                    </div>
+                                </div>
+                                <div class="universe__content-category-careerContent-period">
+                                    <h3 class="startDay">{{data-startday}}</h3>
+                                    <h3 class="endDay">{{data-endday}}</h3>
+                                    <h3 class="summary">{{yearSummary}}</h3>
+                                </div>
+                                <div class="universe__content-category-careerContent-detail">
+                                    {{careerExplanation}}
+                                </div>
+                            </div>
+                        </div>
 					<div class="universe__bg-img">
 						<img src="img/mintuniverse_blur2.png" alt="백그라운드 이미지" />
 					</div>
