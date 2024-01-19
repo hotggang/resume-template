@@ -7,200 +7,235 @@
     margin: 0 auto;
     padding: 40px;
 
-    .active{
-        //header 
-        .universe__content-header{
-            margin: 0 0 48px 0;
-            display: flex;
+    .universe__content{
+        position: relative;
+        width: 100%;
+        max-width: 65rem;
+        margin: 0 auto;
+        border-radius: 10px;
+        background-color: $backColor;
+        overflow: hidden;
+
+        background-image: url(../img/mintuniverse_blur1.png);
+        background-repeat: no-repeat;
+
+        .universe__bg-img{
+            position: absolute;
+            left: -300px;
 
             & > img{
-                width: 262px;
-                height: 150px;
+                width: 800px;
+            }
+        }
+
+        .universe__contentWrap{
+            padding: 96px 104px;
+
+            //header 
+            .universe__content-header{
+                margin: 0 0 48px 0;
+                display: flex;
+    
+                & > img{
+                    width: 262px;
+                    height: 150px;
+                    position: relative;
+                    right: 52px;
+                }
+            }
+    
+            .universe__content-headerProfile{
+    
+                img{
+                    position: absolute;
+                    z-index: 1;
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 100%;
+                }
+            }
+    
+            .universe__content-headerTitle{
+                display: inline-block;
                 position: relative;
                 right: 50px;
-            }
-        }
-
-        .universe__content-headerTitle{
-            display: inline-block;
-            position: relative;
-            right: 50px;
-
-            .universe__content-headerTitle-name{
-                @include headerName();
-            }
-            .universe__content-headerTitle-position{
-                @include headerPosition();
-            }
-            .universe__content-headerTitle-positionTag{
-                display: flex
-            }
-            .universe__content-headerTitle-positionTag div{
-                @include headerTag();
-            }
-        }
-
-        .universe__content-profile{
-
-            margin: 0 0 50px 0;
-
-            .universe__content-profileTitle{
-                @include categoryTitleSection();
-
-                h2{
-                    @include categoryTitle();
+    
+                .universe__content-headerTitle-name{
+                    @include headerName();
                 }
-                img{
-                    width: 20px;
-                    height: 20px;
-                    margin: 0 0 0 15px;
+                .universe__content-headerTitle-position{
+                    @include headerPosition();
+                }
+                .universe__content-headerTitle-positionTag{
+                    display: flex
+                }
+                .universe__content-headerTitle-positionTag div{
+                    @include headerTag();
                 }
             }
-
-            .universe__content-profileContent{
-                width: 100%;
-                padding: 22px 30px 22px 30px;
-                border: solid 1px $borderColor;
-                border-bottom-left-radius: 10px;
-                border-bottom-right-radius: 10px;
-
-                .universe__content-profileContent-number, .universe__content-profileContent-mail, .universe__content-profileContent-address{
-                    display: flex;
-                    margin: 0 0 20px 0;
-
-                    &:last-child{
-                        margin: 0;
-                    }
-
-                    .tag{
-                        flex-shrink: 0;
-                        width: 140px;
-                        font-size: 15px;
-                        font-weight: 600;
-                        color: #d9d9d9;
-                    }
-
-                    .detail{
-                        font-size: 15px;
-                        font-weight: 400;
-                        line-height: 1.5;
-                        color: #fff;
-                        display: -webkit-box;
-                        -webkit-box-orient: vertical;
-                        word-break: normal;
-                        word-wrap: break-word;
-                    }
-                }
-            }
-        }
-
-        .universe__content-introduce{
-
-            margin: 0 0 50px 0;
-
-            .universe__content-introduceTitle{
-                @include categoryTitleSection();
-
-                h2{
-                    @include categoryTitle();
-                }
-                img{
-                    width: 20px;
-                    height: 20px;
-                    margin: 0 0 0 15px;
-                }
-            }
-
-            .universe__content-introduceContent{
-                @include categoryContents();
-
-                h3{
-                    @include textstyleContent();
-                }
-            }
-        }
-
-        .universe__content-category{
-            width: 100%;
-            padding: 50px 30px 50px 30px;
-            border: solid 1px $borderColor;
-            border-radius: 10px;
-            border-color: $mainColor;
-
-            /* .universe__content-category-career{
-
-                width: 100%;
+    
+            .universe__content-profile{
+    
                 margin: 0 0 50px 0;
-
-                .universe__content-category-careerTitle{
-
-                    .careerTitle{
-                        @include textstyleCareer01();
+    
+                .universe__content-profileTitle{
+                    @include categoryTitleSection();
+    
+                    h2{
+                        @include categoryTitle();
+                    }
+                    img{
+                        width: 20px;
+                        height: 20px;
+                        margin: 0 0 0 15px;
                     }
                 }
-
-                .universe__content-category-careerContent{
-
-                    .universe__content-category-careerContent-main{
+    
+                .universe__content-profileContent{
+                    width: 100%;
+                    padding: 22px 30px 22px 30px;
+                    border: solid 1px $borderColor;
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+    
+                    .universe__content-profileContent-number, .universe__content-profileContent-mail, .universe__content-profileContent-address{
                         display: flex;
-                        margin: 0 0 10px 0;
-
-                        .company{
-                            @include textstyleCareer02();
+                        margin: 0 0 20px 0;
+    
+                        &:last-child{
+                            margin: 0;
                         }
-
-                        .universe__content-category-careerContent-sub{
+    
+                        .tag{
+                            flex-shrink: 0;
+                            width: 140px;
+                            font-size: 15px;
+                            font-weight: 600;
+                            color: #d9d9d9;
+                        }
+    
+                        .detail{
+                            font-size: 15px;
+                            font-weight: 400;
+                            line-height: 1.5;
+                            color: #fff;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            word-break: normal;
+                            word-wrap: break-word;
+                        }
+                    }
+                }
+            }
+    
+            .universe__content-introduce{
+    
+                margin: 0 0 50px 0;
+    
+                .universe__content-introduceTitle{
+                    @include categoryTitleSection();
+    
+                    h2{
+                        @include categoryTitle();
+                    }
+                    img{
+                        width: 20px;
+                        height: 20px;
+                        margin: 0 0 0 15px;
+                    }
+                }
+    
+                .universe__content-introduceContent{
+                    @include categoryContents();
+    
+                    h3{
+                        @include textstyleContent();
+                    }
+                }
+            }
+    
+            .universe__content-category{
+                width: 100%;
+                padding: 50px 30px 50px 30px;
+                border: solid 1px $borderColor;
+                border-radius: 10px;
+                border-color: $mainColor;
+    
+                /* .universe__content-category-career{
+    
+                    width: 100%;
+                    margin: 0 0 50px 0;
+    
+                    .universe__content-category-careerTitle{
+    
+                        .careerTitle{
+                            @include textstyleCareer01();
+                        }
+                    }
+    
+                    .universe__content-category-careerContent{
+    
+                        .universe__content-category-careerContent-main{
                             display: flex;
-
-                            .position{
-                                @include textstyleCareer03();
+                            margin: 0 0 10px 0;
+    
+                            .company{
+                                @include textstyleCareer02();
+                            }
+    
+                            .universe__content-category-careerContent-sub{
                                 display: flex;
-                                align-items: center;
-
+    
+                                .position{
+                                    @include textstyleCareer03();
+                                    display: flex;
+                                    align-items: center;
+    
+                                    &::after{
+                                        content: '';
+                                        display: inline-block;
+                                        margin: 0 6px;
+                                        width: 3px;
+                                        height: 3px;
+                                        border-radius: 10px;
+                                        background-color: #fff;
+                                    }
+                                }
+    
+                                .belong{
+                                    @include textstyleCareer03();
+                                }
+                            }
+                        }
+    
+                        .universe__content-category-careerContent-period{
+                            display: flex;
+                            margin: 0 0 15px 0;
+    
+                            h3{
+                                @include textstyleCareer03();
+                            }
+    
+                            .startDay{
+                                &::after{
+                                    content: '-';
+                                    display: inline-block;
+                                    margin: 0 5px;
+                                }
+                            }
+                            .endDay{
                                 &::after{
                                     content: '';
                                     display: inline-block;
-                                    margin: 0 6px;
-                                    width: 3px;
-                                    height: 3px;
-                                    border-radius: 10px;
-                                    background-color: #fff;
+                                    margin: 0 0 0 10px;
                                 }
                             }
-
-                            .belong{
-                                @include textstyleCareer03();
-                            }
                         }
                     }
-
-                    .universe__content-category-careerContent-period{
-                        display: flex;
-                        margin: 0 0 15px 0;
-
-                        h3{
-                            @include textstyleCareer03();
-                        }
-
-                        .startDay{
-                            &::after{
-                                content: '-';
-                                display: inline-block;
-                                margin: 0 5px;
-                            }
-                        }
-                        .endDay{
-                            &::after{
-                                content: '';
-                                display: inline-block;
-                                margin: 0 0 0 10px;
-                            }
-                        }
-                    }
-                }
-            } */
-
-            /* Depth 3 이상 가지 않도록 처리 */
+                } */
+    
+                /* Depth 3 이상 가지 않도록 처리 */
+            }
         }
     }
 }
