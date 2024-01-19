@@ -39,53 +39,67 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
 	},
 ];
 
-export const FOREIGN_LANGUAGE: ForeignLanguage = {
-	foreignLanguageName: 'English',
-	foreignLanguageGrade: 'Intermediate',
-};
+export const FOREIGN_LANGUAGES: ForeignLanguage[] = [
+	{
+		foreignLanguageName: 'English',
+		foreignLanguageGrade: 'Intermediate',
+	},
+];
 
-export const PROJECT: Project = {
-	projectName: 'Project Name',
-	projectStatus: 'Project Status',
-	projectStartedAt: '2020-01-01',
-	projectEndedAt: '2020-01-01',
-	projectDescription: 'Project Description',
-	projectOrganization: 'Project Organization',
-};
+export const PROJECTS: Project[] = [
+	{
+		projectName: 'Project Name',
+		projectStatus: 'Project Status',
+		projectStartedAt: '2020-01-01',
+		projectEndedAt: '2020-01-01',
+		projectDescription: 'Project Description',
+		projectOrganization: 'Project Organization',
+	},
+];
 
-export const PORTFOLIO_ATTACH_FILE: PortfolioAttachFile = {
-	attachFileName: 'Attach File Name',
-	attachFileUrl: 'https://www.google.com',
-	attachFileUploadedAt: '2020-01-01',
-};
+export const PORTFOLIO_ATTACH_FILES: PortfolioAttachFile[] = [
+	{
+		attachFileName: 'Attach File Name',
+		attachFileUrl: 'https://www.google.com',
+		attachFileUploadedAt: '2020-01-01',
+	},
+];
 
-export const ACTIVITY: Activity = {
-	activityName: 'Activity Name',
-	activityYear: '2020',
-	activityDescription: 'Activity Description',
-	activityOrganization: 'Activity Organization',
-};
+export const ACTIVITES: Activity[] = [
+	{
+		activityName: 'Activity Name',
+		activityYear: '2020',
+		activityDescription: 'Activity Description',
+		activityOrganization: 'Activity Organization',
+	},
+];
 
-export const EDUCATION: Education = {
-	schoolType: 'School Type',
-	schoolName: 'School Name',
-	major: 'Major',
-	graduationStatus: 'Graduation Status',
-	enrollmentStartedAt: '2020-01-01',
-	enrollmentEndedAt: '2020-01-01',
-};
+export const EDUCATIONS: Education[] = [
+	{
+		schoolType: 'School Type',
+		schoolName: 'School Name',
+		major: 'Major',
+		graduationStatus: 'Graduation Status',
+		enrollmentStartedAt: '2020-01-01',
+		enrollmentEndedAt: '2020-01-01',
+	},
+];
 
-export const CERTIFICATE: Certificate = {
-	certificateName: '정보처리기사',
-	certificateGrade: '1급',
-	certificatedAt: '2023',
-	certificateOrganization: '대한 상공회의소',
-};
+export const CERTIFICATES: Certificate[] = [
+	{
+		certificateName: '정보처리기사',
+		certificateGrade: '1급',
+		certificatedAt: '2023',
+		certificateOrganization: '대한 상공회의소',
+	},
+];
 
-export const FREE_QUESTION_ANSWER: FreeQuestionAnswer = {
-	question: '질문',
-	answer: '답변',
-};
+export const FREE_QUESTION_ANSWERS: FreeQuestionAnswer[] = [
+	{
+		question: '질문',
+		answer: '답변',
+	},
+];
 
 export const initResumeData: ResumeTemplate = {
 	name: '김랠릿',
@@ -98,68 +112,18 @@ export const initResumeData: ResumeTemplate = {
 	zipCode: '',
 	coverLetter: '',
 	profileImage: '',
-	techStack: {
-		skills: ['FIGMA', 'PHOTOSHOP', 'ILLUSTRATOR'],
-	},
+	techStack: TECH_STACK,
 	workExperiences: [WORK_EXPERIENCES[0]],
-	foreignLanguages: [
-		{
-			foreignLanguageName: '',
-			foreignLanguageGrade: '',
-		},
-	],
-	projects: [
-		{
-			projectName: '',
-			projectStatus: '',
-			projectStartedAt: '',
-			projectEndedAt: '',
-			projectDescription: '',
-			projectOrganization: '',
-		},
-	],
+	foreignLanguages: [FOREIGN_LANGUAGES[0]],
+	projects: [PROJECTS[0]],
 	portfolio: {
 		links: [],
-		attachFiles: [
-			{
-				attachFileName: '',
-				attachFileUrl: '',
-				attachFileUploadedAt: '',
-			},
-		],
+		attachFiles: [PORTFOLIO_ATTACH_FILES[0]],
 	},
-	activities: [
-		{
-			activityName: '',
-			activityYear: '',
-			activityDescription: '',
-			activityOrganization: '',
-		},
-	],
-	educations: [
-		{
-			schoolType: '',
-			schoolName: '',
-			major: '',
-			graduationStatus: '',
-			enrollmentStartedAt: '',
-			enrollmentEndedAt: '',
-		},
-	],
-	certificates: [
-		{
-			certificateName: '',
-			certificateGrade: '',
-			certificatedAt: '',
-			certificateOrganization: '',
-		},
-	],
-	freeQuestionAnswers: [
-		{
-			question: '',
-			answer: '',
-		},
-	],
+	activities: [ACTIVITES[0]],
+	educations: [EDUCATIONS[0]],
+	certificates: [CERTIFICATES[0]],
+	freeQuestionAnswers: [FREE_QUESTION_ANSWERS[0]],
 	introduce: '',
 	resumeSequence: {},
 	cdnDomain: '',
