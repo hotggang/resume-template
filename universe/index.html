@@ -9,91 +9,88 @@
 	<!-- css -->
 	<link rel="stylesheet" href="css/styles.min.css" />
 
-		<!-- font -->
-		<link
-			rel="stylesheet"
-			as="style"
-			crossorigin
-			href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
-		/>
-		<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-	</head>
-	<body>
-		<main class="universe__main">
-			<section id="common__data-settings"></section>
-			<div class="universe__content">
-				<div class="universe__content-header">
-					<div class="universe__content-headerProfile">
-						<img src="./img/sample_profile.jpg" alt="프로필 샘플">
-					</div>
-					<img src="img/mintuniverse_profile.png" alt="프로필 영역" />
-					<div class="universe__content-headerTitle">
-						<div class="universe__content-headerTitle-name">{{name}}</div>
-						<div class="universe__content-headerTitle-position">{{job}}</div>
-						<div class="universe__content-headerTitle-positionTag">
-							{{#each techStack.skills}}
-							<div>#{{this}}</div>
-							{{/each}}
-						</div>
-					</div>
+	<!-- font -->
+	<link rel="stylesheet" as="style" crossorigin
+		href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+</head>
+
+<body>
+	<main class="universe__main">
+		<section id="common__data-settings"></section>
+		<div class="universe__content">
+			<div class="universe__content-header">
+				<div class="universe__content-headerProfile">
+					<img src="./img/sample_profile.jpg" alt="프로필 샘플">
 				</div>
-				<div class="universe__content-profile">
-					<div class="universe__content-profileTitle">
-						<h2>PROFILE</h2>
-						<img src="img/mintuniverse_arrow.png" alt="arrow" />
-					</div>
-					<div class="universe__content-profileContent">
-						<div class="universe__content-profileContent-number">
-							<h3 class="tag">연락처</h3>
-							<h3 class="detail">+{{countryNumber}} {{phoneNumber}}</h3>
-						</div>
-						<div class="universe__content-profileContent-mail">
-							<h3 class="tag">메일</h3>
-							<h3 class="detail">{{email}}</h3>
-						</div>
-						<div class="universe__content-profileContent-address">
-							<h3 class="tag">주소</h3>
-							<h3 class="detail">{{addressMain}} {{addressBuildingName}}</h3>
-						</div>
-					</div>
-				</div>
-				<div class="universe__content-introduce">
-					<div class="universe__content-introduceTitle">
-						<h2>한 줄 소개</h2>
-						<img src="img/mintuniverse_arrow.png" alt="arrow">
-					</div>
-					<div class="universe__content-introduceContent">
-						<h3>{{introduce}} </h3>
-					</div>
-				</div>
-				<div class="universe__content-category">
-					<div class="universe__content-category-career">
-						<div class="universe__content-category-careerTitle">
-							<h3 class="careerTitle">경력</h3>
-						</div>
-						<div class="universe__content-category-careerContent">
-							<div class="universe__content-category-careerContent-main">
-								<h3 class="company">{{company}}</h3>
-								<div class="universe__content-category-careerContent-sub">
-									<h3 class="position">{{position}}</h3>
-									<h3 class="belong">{{belong}}</h3>
-								</div>
-							</div>
-							<div class="universe__content-category-careerContent-period">
-								<h3 class="startDay">{{data-startday}}</h3>
-								<h3 class="endDay">{{data-endday}}</h3>
-								<h3 class="summary">{{yearSummary}}</h3>
-							</div>
-							<div class="universe__content-category-careerContent-detail">
-								{{careerExplanation}}
-							</div>
-						</div>
+				<img src="img/mintuniverse_profile.png" alt="프로필 영역" />
+				<div class="universe__content-headerTitle">
+					<div class="universe__content-headerTitle-name">{{name}}</div>
+					<div class="universe__content-headerTitle-position">{{job}}</div>
+					<div class="universe__content-headerTitle-positionTag">
+						{{#each techStack.skills}}
+						<div>#{{this}}</div>
 						{{/each}}
 					</div>
+				</div>
+			</div>
+			<div class="universe__content-profile">
+				<div class="universe__content-profileTitle">
+					<h2>PROFILE</h2>
+					<img src="img/mintuniverse_arrow.png" alt="arrow" />
+				</div>
+				<div class="universe__content-profileContent">
+					<div class="universe__content-profileContent-number">
+						<h3 class="tag">연락처</h3>
+						<h3 class="detail">+{{countryNumber}} {{phoneNumber}}</h3>
+					</div>
+					<div class="universe__content-profileContent-mail">
+						<h3 class="tag">메일</h3>
+						<h3 class="detail">{{email}}</h3>
+					</div>
+					<div class="universe__content-profileContent-address">
+						<h3 class="tag">주소</h3>
+						<h3 class="detail">{{addressMain}} {{addressBuildingName}}</h3>
+					</div>
+				</div>
+			</div>
+			<div class="universe__content-introduce">
+				<div class="universe__content-introduceTitle">
+					<h2>한 줄 소개</h2>
+					<img src="img/mintuniverse_arrow.png" alt="arrow">
+				</div>
+				<div class="universe__content-introduceContent">
+					<h3>{{introduce}} </h3>
+				</div>
+			</div>
+			<div class="universe__content-category">
+				<div class="universe__content-category-career">
+					<div class="universe__content-category-careerTitle">
+						<h3 class="careerTitle">경력</h3>
+					</div>
+					{{#each workExperiences}}
+					<div class="universe__content-category-careerContent">
+						<div class="universe__content-category-careerContent-main">
+							<h3 class="company">{{companyName}}</h3>
+							<div class="universe__content-category-careerContent-sub">
+								<h3 class="position">{{role}}</h3>
+								<h3 class="belong">{{departmentName}}</h3>
+							</div>
+						</div>
+						<div class="universe__content-category-careerContent-period">
+							<h3 class="startDay">{{workStartedAt}}</h3>
+							<h3 class="endDay">{{workEndedAt}}</h3>
+							<h3 class="summary">{{employmentStatus}}</h3>
+						</div>
+						<div class="universe__content-category-careerContent-detail">
+							{{assignedTask}}
+						</div>
+					</div>
+					{{/each}}
+				</div>
 				<div class="universe__bg-img">
 					<img src="img/mintuniverse_blur2.png" alt="백그라운드 이미지" />
 				</div>
-			</div>
 	</main>
 </body>
 <!-- <script type="module" src="compile.js" defer></script> -->
