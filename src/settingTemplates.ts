@@ -38,8 +38,6 @@ export const T_BasicSection = /*html*/ `
 	<section class="settings__basic">
 		<h3>기본 섹션</h3>
 		<section>
-			<input type="checkbox" id="settings__basic-name-toggle" checked />
-			<label for="settings__basic-name-toggle">name</label>
 			<input type="checkbox" id="settings__basic-job-toggle" checked />
 			<label for="settings__basic-job-toggle">job</label>
 			<input type="checkbox" id="settings__basic-email-toggle" checked />

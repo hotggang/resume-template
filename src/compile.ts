@@ -23,14 +23,6 @@ const compile = async (
 	E_Settings(
 		[
 			{
-				selectorString: '#settings__basic-name-toggle',
-				source,
-				data,
-				callback: (selector: HTMLInputElement) => {
-					data.name = selector.checked ? initResumeData['name'] : '';
-				},
-			},
-			{
 				selectorString: '#settings__basic-job-toggle',
 				source,
 				data,
