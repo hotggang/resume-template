@@ -37,7 +37,7 @@
 @mixin categoryTitle{
     font-size: 20px;
     font-weight: 600;
-    line-height: 55px;
+    line-height: 50px;
 }
 @mixin categoryContents{
     width: 100%;
@@ -69,7 +69,7 @@
         display: block;
         flex-grow: 1;
         margin: 0 0 0 20px;
-        height: 2px;
+        height: 1px;
         background-color: $mainColor;
     }
 }

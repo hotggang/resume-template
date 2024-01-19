@@ -170,76 +170,88 @@
     border-radius: 10px;
     border-color: $mainColor;
 }
-
 .universe__content-category-career{
 
     width: 100%;
     margin: 0 0 50px 0;
+}
+//categoryTitle_경력사항 소제목
+.universe__content-category-careerTitle{
 
-    .universe__content-category-careerTitle{
-
-        .careerTitle{
-            @include textstyleCareer01();
-        }
+    .careerTitle{
+        @include textstyleCareer01();
     }
+}
+//WorkExperience_경력
+.universe__content-category-WorkExperience{
 
-    .universe__content-category-careerContent{
+    .universe__content-category-WorkExperienceTitle{
+        display: flex;
+        margin: 0 0 10px 0;
 
-        .universe__content-category-careerContent-main{
-            display: flex;
-            margin: 0 0 10px 0;
-
-            .company{
-                @include textstyleCareer02();
-            }
-
-            .universe__content-category-careerContent-sub{
-                display: flex;
-
-                .position{
-                    @include textstyleCareer03();
-                    display: flex;
-                    align-items: center;
-
-                    &::after{
-                        content: '';
-                        display: inline-block;
-                        margin: 0 6px;
-                        width: 3px;
-                        height: 3px;
-                        border-radius: 10px;
-                        background-color: #fff;
-                    }
-                }
-
-                .belong{
-                    @include textstyleCareer03();
-                }
-            }
+        .company{
+            @include textstyleCareer02();
         }
 
-        .universe__content-category-careerContent-period{
+        .universe__content-category-WorkExperienceDetail{
             display: flex;
-            margin: 0 0 15px 0;
 
-            h3{
+            .role{
                 @include textstyleCareer03();
-            }
+                display: flex;
+                align-items: center;
 
-            .startDay{
-                &::after{
-                    content: '-';
-                    display: inline-block;
-                    margin: 0 5px;
-                }
-            }
-            .endDay{
                 &::after{
                     content: '';
                     display: inline-block;
-                    margin: 0 0 0 10px;
+                    margin: 0 6px;
+                    width: 3px;
+                    height: 3px;
+                    border-radius: 10px;
+                    background-color: #fff;
                 }
             }
+
+            .department{
+                @include textstyleCareer03();
+            }
         }
+    }
+
+    .universe__content-category-WorkExperiencePeriod{
+        display: flex;
+        margin: 0 0 15px 0;
+
+        h3{
+            @include textstyleCareer03();
+        }
+
+        .startedat{
+            &::after{
+                content: '-';
+                display: inline-block;
+                margin: 0 5px;
+            }
+        }
+        .endedat{
+            &::after{
+                content: '';
+                display: inline-block;
+                margin: 0 0 0 10px;
+            }
+        }
+        .status{
+            @include textstyleCareer03();
+        }
+    }
+
+    .universe__content-category-WorkExperienceTask{
+        @include textstyleCareer03();
+
+        line-height: 1.5;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            word-break: normal;
+            word-wrap: break-word;   
     }
 }

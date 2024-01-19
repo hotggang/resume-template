@@ -73,20 +73,20 @@
 						<h3 class="careerTitle">경력</h3>
 					</div>
 					{{#each workExperiences}}
-					<div class="universe__content-category-careerContent">
-						<div class="universe__content-category-careerContent-main">
+					<div class="universe__content-category-WorkExperience">
+						<div class="universe__content-category-WorkExperienceTitle">
 							<h3 class="company">{{companyName}}</h3>
-							<div class="universe__content-category-careerContent-sub">
-								<h3 class="position">{{role}}</h3>
-								<h3 class="belong">{{departmentName}}</h3>
+							<div class="universe__content-category-WorkExperienceDetail">
+								<h3 class="role">{{role}}</h3>
+								<h3 class="department">{{departmentName}}</h3>
 							</div>
 						</div>
-						<div class="universe__content-category-careerContent-period">
-							<h3 class="startDay">{{workStartedAt}}</h3>
-							<h3 class="endDay">{{workEndedAt}}</h3>
-							<h3 class="summary">{{employmentStatus}}</h3>
+						<div class="universe__content-category-WorkExperiencePeriod">
+							<h3 class="startedat">{{workStartedAt}}</h3>
+							<h3 class="endedat">{{workEndedAt}}</h3>
+							<h3 class="status">&#40;{{employmentStatus}}&#41;</h3>
 						</div>
-						<div class="universe__content-category-careerContent-detail">
+						<div class="universe__content-category-WorkExperienceTask">
 							{{assignedTask}}
 						</div>
 					</div>
