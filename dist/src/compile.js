@@ -80,6 +80,26 @@ const eventsWithCheckbox = (source, data) => {
                         data[itemKey] = selector.checked ? itemsBySection[itemKey] : '';
                         return;
                     }
+                    if (section === 'portfolioAttachFiles') {
+                        if (data.portfolio === undefined ||
+                            data.portfolio?.attachFiles.length === 0) {
+                            return;
+                        }
+                        data.portfolio.attachFiles[0][itemKey] = selector.checked
+                            ? itemsBySection[itemKey]
+                            : '';
+                        return;
+                    }
+                    if (section === 'portfolioLinks') {
+                        if (data.portfolio === undefined ||
+                            data.portfolio?.links.length === 0) {
+                            return;
+                        }
+                        data.portfolio.links[0][itemKey] = selector.checked
+                            ? itemsBySection[itemKey]
+                            : '';
+                        return;
+                    }
                     if (data[section].length === 0) {
                         return;
                     }
