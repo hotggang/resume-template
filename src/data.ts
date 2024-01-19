@@ -11,6 +11,15 @@ import {
 	WorkExperience,
 } from './type.js';
 
+export const BASIC = {
+	job: 'UIUX디자이너',
+	email: 'rallit@inflab.com',
+	phoneNumber: '01012345678',
+	address: '서울특별시 구로구 임의로 1길 23 가산중앙센트럴아파트 123동 123호',
+	coverLetter: '',
+	profileImage: '',
+};
+
 export const TECH_STACK: TechStack = {
 	skills: ['React', 'Photoshop', 'Javascript'],
 };
@@ -101,30 +110,33 @@ export const FREE_QUESTION_ANSWERS: FreeQuestionAnswer[] = [
 	},
 ];
 
-export const initResumeData: ResumeTemplate = {
-	name: '김랠릿',
-	job: 'UIUX디자이너',
-	email: 'rallit@inflab.com',
-	countryNumber: '82',
-	phoneNumber: '01012345678',
-	addressMain: '서울특별시 구로구 임의로 1길',
-	addressBuildingName: '23 가산중앙센트럴아파트',
-	zipCode: '',
-	coverLetter: '',
-	profileImage: '',
-	techStack: TECH_STACK,
-	workExperiences: [WORK_EXPERIENCES[0]],
-	foreignLanguages: [FOREIGN_LANGUAGES[0]],
-	projects: [PROJECTS[0]],
-	portfolio: {
-		links: [],
-		attachFiles: [PORTFOLIO_ATTACH_FILES[0]],
-	},
-	activities: [ACTIVITES[0]],
-	educations: [EDUCATIONS[0]],
-	certificates: [CERTIFICATES[0]],
-	freeQuestionAnswers: [FREE_QUESTION_ANSWERS[0]],
+export const INTRODUCE = {
 	introduce: '',
-	resumeSequence: {},
-	cdnDomain: '',
 };
+
+export const initResumeData: ResumeTemplate = Object.assign(
+	{},
+	{
+		...BASIC,
+		...INTRODUCE,
+		name: '김랠릿',
+		countryNumber: '82',
+		addressMain: '서울특별시 구로구 임의로 1길',
+		addressBuildingName: '23 가산중앙센트럴아파트',
+		zipCode: '',
+		techStack: TECH_STACK,
+		workExperiences: [{ ...WORK_EXPERIENCES[0] }],
+		foreignLanguages: [{ ...FOREIGN_LANGUAGES[0] }],
+		projects: [{ ...PROJECTS[0] }],
+		portfolio: {
+			links: [],
+			attachFiles: [{ ...PORTFOLIO_ATTACH_FILES[0] }],
+		},
+		activities: [{ ...ACTIVITES[0] }],
+		educations: [{ ...EDUCATIONS[0] }],
+		certificates: [{ ...CERTIFICATES[0] }],
+		freeQuestionAnswers: [{ ...FREE_QUESTION_ANSWERS[0] }],
+		resumeSequence: {},
+		cdnDomain: '',
+	},
+);

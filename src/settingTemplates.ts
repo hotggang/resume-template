@@ -14,7 +14,7 @@ const sectionName = {
 	workExperiences: '경력',
 	foreignLanguages: '외국어',
 	projects: '프로젝트',
-	portfolioAttachFile: '포트폴리오 - 첨부 파일',
+	portfolioAttachFiles: '포트폴리오 - 첨부 파일',
 	portfolioLinks: '포트폴리오 - 링크',
 	activities: '대외 활동',
 	educations: '교육',
@@ -76,8 +76,8 @@ const T_IntroduceSection = /*html*/ `
 	<section class="settings__introduce">
 		<h3>자기소개 섹션</h3>
 		<section>
-			<input type="checkbox" id="settings__introduce-coverLetter-toggle" checked />
-			<label for="settings__introduce-coverLetter-toggle">coverLetter</label>
+			<input type="checkbox" id="settings__introduce-introduce-toggle" checked />
+			<label for="settings__introduce-introduce-toggle">introduce</label>
 		</section>
 	</section>
 `;
@@ -113,7 +113,7 @@ export const T_list_sections = () => {
 		generateResumeSection('workExperiences', WORK_EXPERIENCES[0]),
 		generateResumeSection('foreignLanguages', FOREIGN_LANGUAGES[0]),
 		generateResumeSection('projects', PROJECTS[0]),
-		generateResumeSection('portfolioAttachFile', PORTFOLIO_ATTACH_FILES[0]),
+		generateResumeSection('portfolioAttachFiles', PORTFOLIO_ATTACH_FILES[0]),
 		T_PortfolioLinksSection,
 		generateResumeSection('activities', ACTIVITES[0]),
 		generateResumeSection('educations', EDUCATIONS[0]),

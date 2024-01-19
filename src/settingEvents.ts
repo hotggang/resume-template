@@ -26,17 +26,17 @@ const setEvents = (
 	selector: HTMLInputElement;
 	handleChecked: () => void;
 }[] => {
-	return events.map(({ selectorString, source, data, callback }) => {
+	return events.map(({ selectorString, source, data, callback }, index) => {
 		const $input = document.querySelector(selectorString) as HTMLInputElement;
-
 		if ($input === undefined || $input === null) {
-			throw new Error('존재하지 않는 element 입니다.');
+			throw new Error(
+				`존재하지 않는 element 입니다. ${selectorString}: ${index}`,
+			);
 		}
 
 		const handleChecked = () => {
 			// 데이터 변경
 			callback($input);
-			console.log('handleChecked');
 
 			// remove 리스너 호출 (이벤트 제거)
 			eventManager.queue.forEach((removeEvent) => {
