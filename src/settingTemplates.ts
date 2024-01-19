@@ -22,19 +22,82 @@ const sectionName = {
 	freeQuestionAnswers: '지원자에게 묻는 질문',
 };
 
+const T_Layout = (templateString: string) => /*html*/ `
+	<section>
+		<aside>
+			<h2>기본 설정</h2>
+			<p>데이터를 관리합니다.</p>
+			<form class="settings__form">
+				${templateString}	
+			</form>
+		</aside>
+	</section>
+`;
+
+export const T_BasicSection = /*html*/ `
+	<section class="settings__basic">
+		<h3>기본 섹션</h3>
+		<section>
+			<input type="checkbox" id="settings__basic-name-toggle" checked />
+			<label for="settings__basic-name-toggle">name</label>
+			<input type="checkbox" id="settings__basic-job-toggle" checked />
+			<label for="settings__basic-job-toggle">job</label>
+			<input type="checkbox" id="settings__basic-email-toggle" checked />
+			<label for="settings__basic-email-toggle">email</label>
+			<input type="checkbox" id="settings__basic-phoneNumber-toggle" checked />
+			<label for="settings__basic-phoneNumber-toggle">phoneNumber</label>
+			<input type="checkbox" id="settings__basic-address-toggle" checked />
+			<label for="settings__basic-address-toggle">address</label>
+			<input type="checkbox" id="settings__basic-coverLetter-toggle" checked />
+			<label for="settings__basic-coverLetter-toggle">coverLetter</label>
+			<input type="checkbox" id="settings__basic-profileImage-toggle" checked />
+			<label for="settings__basic-profileImage-toggle">profileImage</label>
+		</section>					
+	</section>				
+`;
+
+const T_TechStackSection = /*html*/ `
+	<section class="settings__techStack">
+		<h3>기술 스택 섹션</h3>
+		<section>
+			<input type="number" id="settings__techStack-count-toggle" value="1"/>
+		</section>
+	</section>
+`;
+
+const T_PortfolioLinksSection = /*html*/ `
+	<section class="settings__portfolioLinks">
+		<h3>포트폴리오 - 링크 섹션</h3>
+		<section>
+			<input type="number" id="settings__portfolioLinks-count-toggle" value="1"/>
+		</section>
+	</section>
+`;
+
+const T_IntroduceSection = /*html*/ `
+	<section class="settings__introduce">
+		<h3>자기소개 섹션</h3>
+		<section>
+			<input type="checkbox" id="settings__introduce-coverLetter-toggle" checked />
+			<label for="settings__introduce-coverLetter-toggle">coverLetter</label>
+		</section>
+	</section>
+`;
+
 const generateResumeSection = (
 	section: keyof typeof sectionName,
 	fields: Record<string, string>,
 ): string => {
 	const sectionHTML = `
-    <section class="settings__basic">
+    <section class="settings__${sectionName}">
       <h3>${sectionName[section]} 섹션</h3>
       <section>
+				<input type="number" id="settings__${section}-count-toggle" value="1"/>
         ${Object.entries(fields)
 					.map(
 						([fieldName]) => `
-            <input type="checkbox" id="settings__basic-${fieldName}-toggle" checked />
-            <label for="settings__basic-${fieldName}-toggle">${fieldName}</label>
+            <input type="checkbox" id="settings__${section}-${fieldName}-toggle" checked />
+            <label for="settings__${section}-${fieldName}-toggle">${fieldName}</label>
           `,
 					)
 					.join('')}
@@ -45,18 +108,22 @@ const generateResumeSection = (
 	return sectionHTML;
 };
 
-export const T_sections = () => {
+export const T_list_sections = () => {
 	// TODO: techStack, portfolioLinks, introduce 별도 처리
 	const sections = [
+		T_BasicSection,
+		T_TechStackSection,
 		generateResumeSection('workExperiences', WORK_EXPERIENCE),
 		generateResumeSection('foreignLanguages', FOREIGN_LANGUAGE),
 		generateResumeSection('projects', PROJECT),
 		generateResumeSection('portfolioAttachFile', PORTFOLIO_ATTACH_FILE),
+		T_PortfolioLinksSection,
 		generateResumeSection('activities', ACTIVITY),
 		generateResumeSection('educations', EDUCATION),
 		generateResumeSection('certificates', CERTIFICATE),
 		generateResumeSection('freeQuestionAnswers', FREE_QUESTION_ANSWER),
+		T_IntroduceSection,
 	];
 
-	return sections.join('');
+	return T_Layout(sections.join(''));
 };
