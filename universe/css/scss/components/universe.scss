@@ -3,7 +3,7 @@
 
 .universe__main{
     width: 100%;
-    max-width: 65rem;
+    max-width: 62rem;
     margin: 0 auto;
     padding: 40px;
 }
@@ -21,7 +21,7 @@
 .universe__content{
     position: relative;
     width: 100%;
-    max-width: 65rem;
+    max-width: 62rem;
     margin: 0 auto;
     padding: 96px 104px;
     border-radius: 10px;
@@ -30,6 +30,10 @@
 
     background-image: url(../img/mintuniverse_blur1.png);
     background-repeat: no-repeat;
+
+    /* @media screen and (max-width: 768px){
+        
+    } */
 }
 
 //header 
@@ -37,21 +41,25 @@
     margin: 0 0 48px 0;
     display: flex;
 
-    & > img{
-        width: 262px;
-        height: 150px;
-        position: relative;
-        right: 52px;
+    @media screen and (max-width: 768px){
+        flex-direction: column;
     }
 }
 .universe__content-headerProfile{
 
-    img{
+    .sample{
         position: absolute;
         z-index: 1;
         width: 150px;
         height: 150px;
         border-radius: 100%;
+    }
+
+    .universe{
+        width: 262px;
+        height: 150px;
+        position: relative;
+        right: 52px;
     }
 }
 .universe__content-headerTitle{
