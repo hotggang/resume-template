@@ -1,4 +1,4 @@
-import { initResumeData } from './data.js';
+import { WORK_EXPERIENCES, initResumeData } from './data.js';
 import { E_Settings } from './settingEvents.js';
 const compile = async (source, data, eventManager) => {
     const $content = document.querySelector('.universe__content');
@@ -7,15 +7,10 @@ const compile = async (source, data, eventManager) => {
         return;
     }
     $content.innerHTML = template(data);
-    E_Settings([
-        {
-            selectorString: '#settings__basic-name-toggle',
-            source,
-            data,
-            callback: (selector) => {
-                data.name = selector.checked ? initResumeData['name'] : '';
-            },
-        },
+    E_Settings(events(source, data), eventManager);
+};
+const events = (source, data) => {
+    const result = [
         {
             selectorString: '#settings__basic-job-toggle',
             source,
@@ -32,6 +27,33 @@ const compile = async (source, data, eventManager) => {
                 data.email = selector.checked ? initResumeData['email'] : '';
             },
         },
-    ], eventManager);
+        {
+            selectorString: '#settings__workExperiences-count-toggle',
+            source,
+            data,
+            callback: (selector) => {
+                const maxCount = Number(selector.value) <= 0 ? 0 : Number(selector.value);
+                const dataLength = data.workExperiences.length;
+                const initialLength = WORK_EXPERIENCES.length;
+                let count = 0;
+                if (maxCount <= dataLength) {
+                    while (dataLength - maxCount > count) {
+                        const itemIndex = initialLength >= count ? count : initialLength % count;
+                        console.log(itemIndex);
+                        data.workExperiences.pop();
+                        count++;
+                    }
+                    return;
+                }
+                while (maxCount - dataLength > count) {
+                    const itemIndex = initialLength >= count ? count : initialLength % count;
+                    console.log(itemIndex);
+                    data.workExperiences.push(WORK_EXPERIENCES[itemIndex]);
+                    count++;
+                }
+            },
+        },
+    ];
+    return result;
 };
 export default compile;
