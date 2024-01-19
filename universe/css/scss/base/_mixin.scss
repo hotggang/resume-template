@@ -41,9 +41,55 @@
 @mixin categoryContents{
     width: 100%;
     display: flex;
-    padding: 22px 0 22px 30px;
+    padding: 22px 30px 22px 30px;
     flex-direction: row;
     border: solid 1px $borderColor;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+//content textstyle
+@mixin textstyleContent{
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+}
+
+@mixin textstyleCareer01{
+    display: flex;
+    align-items: center;
+    margin: 0 0 30px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: $mainColor;
+
+    &::after{
+        content: '';
+        display: block;
+        flex-grow: 1;
+        margin: 0 0 0 20px;
+        height: 2px;
+        background-color: $mainColor;
+    }
+}
+@mixin textstyleCareer02{
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+
+    &::after{
+        content: '';
+        display: inline-block;
+        margin: 0 15px;
+        width: 2px;
+        height: 15px;
+        background-color: #fff;
+    }
+}
+@mixin textstyleCareer03{
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
 }

@@ -82,5 +82,112 @@
                 }
             }
         }
+
+        .universe__content-introduce{
+
+            margin: 0 0 50px 0;
+
+            .universe__content-introduceTitle{
+                @include categoryTitleSection();
+
+                h2{
+                    @include categoryTitle();
+                }
+                img{
+                    width: 20px;
+                    height: 20px;
+                    margin: 0 0 0 15px;
+                }
+            }
+
+            .universe__content-introduceContent{
+                @include categoryContents();
+
+                h3{
+                    @include textstyleContent();
+                }
+            }
+        }
+
+        .universe__content-category{
+            width: 100%;
+            padding: 50px 30px 50px 30px;
+            border: solid 1px $borderColor;
+            border-radius: 10px;
+            border-color: $mainColor;
+
+            .universe__content-category-career{
+
+                width: 100%;
+                margin: 0 0 50px 0;
+
+                .universe__content-category-careerTitle{
+
+                    .careerTitle{
+                        @include textstyleCareer01();
+                    }
+                }
+
+                .universe__content-category-careerContent{
+
+                    .universe__content-category-careerContent-main{
+                        display: flex;
+                        margin: 0 0 10px 0;
+
+                        .company{
+                            @include textstyleCareer02();
+                        }
+
+                        .universe__content-category-careerContent-sub{
+                            display: flex;
+
+                            .position{
+                                @include textstyleCareer03();
+                                display: flex;
+                                align-items: center;
+
+                                &::after{
+                                    content: '';
+                                    display: inline-block;
+                                    margin: 0 6px;
+                                    width: 3px;
+                                    height: 3px;
+                                    border-radius: 10px;
+                                    background-color: #fff;
+                                }
+                            }
+
+                            .belong{
+                                @include textstyleCareer03();
+                            }
+                        }
+                    }
+
+                    .universe__content-category-careerContent-period{
+                        display: flex;
+                        margin: 0 0 15px 0;
+
+                        h3{
+                            @include textstyleCareer03();
+                        }
+
+                        .startDay{
+                            &::after{
+                                content: '-';
+                                display: inline-block;
+                                margin: 0 5px;
+                            }
+                        }
+                        .endDay{
+                            &::after{
+                                content: '';
+                                display: inline-block;
+                                margin: 0 0 0 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
