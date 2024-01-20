@@ -1,4 +1,16 @@
-import { WORK_EXPERIENCES, initResumeData } from './data.js';
+import {
+	ACTIVITES,
+	BASIC,
+	CERTIFICATES,
+	EDUCATIONS,
+	FOREIGN_LANGUAGES,
+	FREE_QUESTION_ANSWERS,
+	INTRODUCE,
+	PORTFOLIO_ATTACH_FILES,
+	PROJECTS,
+	TECH_STACK,
+	WORK_EXPERIENCES,
+} from './data.js';
 import { E_Settings, EventManager } from './settingEvents.js';
 import { ResumeTemplate } from './type.js';
 
@@ -24,40 +36,41 @@ const compile = async (
 };
 
 const events = (source: string, data: ResumeTemplate) => {
-	const result = [
-		{
-			selectorString: '#settings__basic-job-toggle',
-			source,
-			data,
-			callback: (selector: HTMLInputElement) => {
-				data.job = selector.checked ? initResumeData['job'] : '';
-			},
-		},
-		{
-			selectorString: '#settings__basic-email-toggle',
-			source,
-			data,
-			callback: (selector: HTMLInputElement) => {
-				data.email = selector.checked ? initResumeData['email'] : '';
-			},
-		},
-		{
-			selectorString: '#settings__workExperiences-count-toggle',
+	return [
+		...eventsWithCount(source, data),
+		...eventsWithCheckbox(source, data),
+	];
+};
+
+const SECTION_WITH_COUNT = {
+	techStack: TECH_STACK.skills,
+	workExperiences: WORK_EXPERIENCES,
+	portfolioLinks: PORTFOLIO_ATTACH_FILES,
+	portfolioAttachFiles: PORTFOLIO_ATTACH_FILES,
+	activities: ACTIVITES,
+	educations: EDUCATIONS,
+	certificates: CERTIFICATES,
+	foreignLanguages: FOREIGN_LANGUAGES,
+	projects: PROJECTS,
+	freeQuestionAnswers: FREE_QUESTION_ANSWERS,
+};
+
+const eventsWithCount = (source: string, data: ResumeTemplate) => {
+	return Object.keys(SECTION_WITH_COUNT).map((section) => {
+		const result = {
+			selectorString: `#settings__${section}-count-toggle`,
 			source,
 			data,
 			callback: (selector: HTMLInputElement) => {
 				const maxCount =
 					Number(selector.value) <= 0 ? 0 : Number(selector.value);
-				const dataLength = data.workExperiences.length;
-				const initialLength = WORK_EXPERIENCES.length;
+				const dataLength = data[section].length;
+				const initialLength = SECTION_WITH_COUNT[section].length;
 
 				let count = 0;
 				if (maxCount <= dataLength) {
 					while (dataLength - maxCount > count) {
-						const itemIndex =
-							initialLength >= count ? count : initialLength % count;
-						console.log(itemIndex);
-						data.workExperiences.pop();
+						data[section].pop();
 
 						count++;
 					}
@@ -68,16 +81,85 @@ const events = (source: string, data: ResumeTemplate) => {
 				while (maxCount - dataLength > count) {
 					const itemIndex =
 						initialLength >= count ? count : initialLength % count;
-					console.log(itemIndex);
-					data.workExperiences.push(WORK_EXPERIENCES[itemIndex]);
+					data[section].push(SECTION_WITH_COUNT[section][itemIndex]);
 
 					count++;
 				}
 			},
-		},
-	];
-
-	return result;
+		};
+		return result;
+	});
 };
 
+const SECTION_WITH_CHECKBOX = {
+	basic: BASIC,
+	introduce: INTRODUCE,
+	workExperiences: WORK_EXPERIENCES[0],
+	foreignLanguages: FOREIGN_LANGUAGES[0],
+	projects: PROJECTS[0],
+	portfolioAttachFiles: PORTFOLIO_ATTACH_FILES[0],
+	activities: ACTIVITES[0],
+	educations: EDUCATIONS[0],
+	certificates: CERTIFICATES[0],
+	freeQuestionAnswers: FREE_QUESTION_ANSWERS[0],
+};
+
+const eventsWithCheckbox = (source: string, data: ResumeTemplate) => {
+	return Object.keys(SECTION_WITH_CHECKBOX).flatMap((section) => {
+		const itemsBySection = SECTION_WITH_CHECKBOX[section];
+
+		const result = Object.keys(itemsBySection).map((itemKey) => {
+			return {
+				selectorString: `#settings__${section}-${itemKey}-toggle`,
+				source,
+				data,
+				callback: (selector: HTMLInputElement) => {
+					if (section === 'basic' || section === 'introduce') {
+						data[itemKey] = selector.checked ? itemsBySection[itemKey] : '';
+
+						return;
+					}
+
+					if (section === 'portfolioAttachFiles') {
+						if (
+							data.portfolio === undefined ||
+							data.portfolio?.attachFiles.length === 0
+						) {
+							return;
+						}
+
+						data.portfolio.attachFiles[0][itemKey] = selector.checked
+							? itemsBySection[itemKey]
+							: '';
+
+						return;
+					}
+
+					if (section === 'portfolioLinks') {
+						if (
+							data.portfolio === undefined ||
+							data.portfolio?.links.length === 0
+						) {
+							return;
+						}
+
+						data.portfolio.links[0][itemKey] = selector.checked
+							? itemsBySection[itemKey]
+							: '';
+
+						return;
+					}
+
+					if (data[section].length === 0) {
+						return;
+					}
+					data[section][0][itemKey] = selector.checked
+						? itemsBySection[itemKey]
+						: '';
+				},
+			};
+		});
+		return result;
+	});
+};
 export default compile;

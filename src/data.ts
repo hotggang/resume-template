@@ -11,6 +11,15 @@ import {
 	WorkExperience,
 } from './type.js';
 
+export const BASIC = {
+	job: 'UIUX디자이너',
+	email: 'rallit@inflab.com',
+	phoneNumber: '01012345678',
+	address: '서울특별시 구로구 임의로 1길 23 가산중앙센트럴아파트 123동 123호',
+	coverLetter: '',
+	profileImage: '',
+};
+
 export const TECH_STACK: TechStack = {
 	skills: ['React', 'Photoshop', 'Javascript'],
 };
@@ -39,128 +48,95 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
 	},
 ];
 
-export const FOREIGN_LANGUAGE: ForeignLanguage = {
-	foreignLanguageName: 'English',
-	foreignLanguageGrade: 'Intermediate',
-};
-
-export const PROJECT: Project = {
-	projectName: 'Project Name',
-	projectStatus: 'Project Status',
-	projectStartedAt: '2020-01-01',
-	projectEndedAt: '2020-01-01',
-	projectDescription: 'Project Description',
-	projectOrganization: 'Project Organization',
-};
-
-export const PORTFOLIO_ATTACH_FILE: PortfolioAttachFile = {
-	attachFileName: 'Attach File Name',
-	attachFileUrl: 'https://www.google.com',
-	attachFileUploadedAt: '2020-01-01',
-};
-
-export const ACTIVITY: Activity = {
-	activityName: 'Activity Name',
-	activityYear: '2020',
-	activityDescription: 'Activity Description',
-	activityOrganization: 'Activity Organization',
-};
-
-export const EDUCATION: Education = {
-	schoolType: 'School Type',
-	schoolName: 'School Name',
-	major: 'Major',
-	graduationStatus: 'Graduation Status',
-	enrollmentStartedAt: '2020-01-01',
-	enrollmentEndedAt: '2020-01-01',
-};
-
-export const CERTIFICATE: Certificate = {
-	certificateName: '정보처리기사',
-	certificateGrade: '1급',
-	certificatedAt: '2023',
-	certificateOrganization: '대한 상공회의소',
-};
-
-export const FREE_QUESTION_ANSWER: FreeQuestionAnswer = {
-	question: '질문',
-	answer: '답변',
-};
-
-export const initResumeData: ResumeTemplate = {
-	name: '김랠릿',
-	job: 'UIUX디자이너',
-	email: 'rallit@inflab.com',
-	countryNumber: '82',
-	phoneNumber: '01012345678',
-	addressMain: '서울특별시 구로구 임의로 1길',
-	addressBuildingName: '23 가산중앙센트럴아파트',
-	zipCode: '',
-	coverLetter: '',
-	profileImage: '',
-	techStack: {
-		skills: ['FIGMA', 'PHOTOSHOP', 'ILLUSTRATOR'],
+export const FOREIGN_LANGUAGES: ForeignLanguage[] = [
+	{
+		foreignLanguageName: 'English',
+		foreignLanguageGrade: 'Intermediate',
 	},
-	workExperiences: [WORK_EXPERIENCES[0]],
-	foreignLanguages: [
-		{
-			foreignLanguageName: '',
-			foreignLanguageGrade: '',
-		},
-	],
-	projects: [
-		{
-			projectName: '',
-			projectStatus: '',
-			projectStartedAt: '',
-			projectEndedAt: '',
-			projectDescription: '',
-			projectOrganization: '',
-		},
-	],
-	portfolio: {
-		links: [],
-		attachFiles: [
-			{
-				attachFileName: '',
-				attachFileUrl: '',
-				attachFileUploadedAt: '',
-			},
-		],
+];
+
+export const PROJECTS: Project[] = [
+	{
+		projectName: 'Project Name',
+		projectStatus: 'Project Status',
+		projectStartedAt: '2020-01-01',
+		projectEndedAt: '2020-01-01',
+		projectDescription: 'Project Description',
+		projectOrganization: 'Project Organization',
 	},
-	activities: [
-		{
-			activityName: '',
-			activityYear: '',
-			activityDescription: '',
-			activityOrganization: '',
-		},
-	],
-	educations: [
-		{
-			schoolType: '',
-			schoolName: '',
-			major: '',
-			graduationStatus: '',
-			enrollmentStartedAt: '',
-			enrollmentEndedAt: '',
-		},
-	],
-	certificates: [
-		{
-			certificateName: '',
-			certificateGrade: '',
-			certificatedAt: '',
-			certificateOrganization: '',
-		},
-	],
-	freeQuestionAnswers: [
-		{
-			question: '',
-			answer: '',
-		},
-	],
+];
+
+export const PORTFOLIO_ATTACH_FILES: PortfolioAttachFile[] = [
+	{
+		attachFileName: 'Attach File Name',
+		attachFileUrl: 'https://www.google.com',
+		attachFileUploadedAt: '2020-01-01',
+	},
+];
+
+export const ACTIVITES: Activity[] = [
+	{
+		activityName: 'Activity Name',
+		activityYear: '2020',
+		activityDescription: 'Activity Description',
+		activityOrganization: 'Activity Organization',
+	},
+];
+
+export const EDUCATIONS: Education[] = [
+	{
+		schoolType: 'School Type',
+		schoolName: 'School Name',
+		major: 'Major',
+		graduationStatus: 'Graduation Status',
+		enrollmentStartedAt: '2020-01-01',
+		enrollmentEndedAt: '2020-01-01',
+	},
+];
+
+export const CERTIFICATES: Certificate[] = [
+	{
+		certificateName: '정보처리기사',
+		certificateGrade: '1급',
+		certificatedAt: '2023',
+		certificateOrganization: '대한 상공회의소',
+	},
+];
+
+export const FREE_QUESTION_ANSWERS: FreeQuestionAnswer[] = [
+	{
+		question: '질문',
+		answer: '답변',
+	},
+];
+
+export const INTRODUCE = {
 	introduce: '',
-	resumeSequence: {},
-	cdnDomain: '',
 };
+
+export const initResumeData: ResumeTemplate = Object.assign(
+	{},
+	{
+		...BASIC,
+		...INTRODUCE,
+		name: '김랠릿',
+		countryNumber: '82',
+		addressMain: '서울특별시 구로구 임의로 1길',
+		addressBuildingName: '23 가산중앙센트럴아파트',
+		zipCode: '',
+		techStack: TECH_STACK,
+		workExperiences: [{ ...WORK_EXPERIENCES[0] }],
+		foreignLanguages: [{ ...FOREIGN_LANGUAGES[0] }],
+		projects: [{ ...PROJECTS[0] }],
+		portfolio: {
+			links: [],
+			attachFiles: [{ ...PORTFOLIO_ATTACH_FILES[0] }],
+		},
+		activities: [{ ...ACTIVITES[0] }],
+		educations: [{ ...EDUCATIONS[0] }],
+		certificates: [{ ...CERTIFICATES[0] }],
+		freeQuestionAnswers: [{ ...FREE_QUESTION_ANSWERS[0] }],
+		resumeSequence: {},
+		cdnDomain: '',
+	},
+);
