@@ -1,6 +1,8 @@
 @import "../base/var";
 @import "../base/mixin";
 
+
+//메인 css
 .universe__main{
     width: 100%;
     max-width: 62rem;
@@ -34,6 +36,7 @@
         
     } */
 }
+
 
 //header - 기본정보 영역
 .universe__content-header{
@@ -79,6 +82,7 @@
         @include headerTag();
     }
 }
+
 
 //profile
 .profileWrap{
@@ -138,6 +142,7 @@
     }
 }
 
+
 //introduce_한 줄 소개
 .universe__content-introduce{
 
@@ -157,6 +162,7 @@
         }
     }
 }
+
 
 //category_이력사항 템플릿
 .universe__content-category{
@@ -221,10 +227,14 @@
 
     .categoryPeriod{
         display: flex;
-        margin: 0 0 15px 0;
+        gap: 15px;
 
         h3{
             @include textstyleCareer03();
+        }
+
+        .periodWrap{
+            display: flex;
         }
 
         .startedat{
@@ -245,6 +255,12 @@
             @include textstyleCareer03();
         }
     }
+    
+    .divider{
+        width: 2px;
+        height: 15px;
+        background-color: #fff;
+    }
 
     .categoryTask{
         @include textstyleCareer03();
@@ -254,5 +270,17 @@
             -webkit-box-orient: vertical;
             word-break: normal;
             word-wrap: break-word;   
+    }
+}
+
+
+//별도 수정
+.universe__content-category-projectProject{
+    
+    .universe__content-category-projectPeriod{
+
+        .first .endedat{
+            margin: 0;
+        }
     }
 }

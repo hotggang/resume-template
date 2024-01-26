@@ -61,7 +61,6 @@ const eventsWithCount = (source, data) => {
                 }
             },
         };
-        console.log(result.data.portfolio);
         return result;
     });
 };

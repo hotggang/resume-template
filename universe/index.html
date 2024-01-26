@@ -83,7 +83,7 @@
 							</div>
 						</div>
 						<div class="universe__content-category-WorkExperiencePeriod categoryPeriod">
-							<div class="periodWrap">
+							<div class="periodWrap first">
 								<h3 class="startedat">{{workStartedAt}}</h3>
 								<h3 class="endedat">{{workEndedAt}}</h3>
 								<h3 class="duration">&#40;{{employmentStatus}}&#41;</h3>
@@ -122,11 +122,12 @@
 							</div>
 						</div>
 						<div class="universe__content-category-projectPeriod categoryPeriod">
-							<div class="periodWrap">
+							<div class="periodWrap first">
 								<h3 class="startedat">{{projectStartedAt}}</h3>
 								<h3 class="endedat">{{projectEndedAt}}</h3>
 							</div>
-							<h3 class="status">&#40;{{projectStatus}}&#41;</h3>
+							<div class="divider"></div>
+							<h3 class="status">{{projectStatus}}</h3>
 						</div>
 						<div class="universe__content-category-projectDescription categoryTask">
 							{{projectDescription}}
