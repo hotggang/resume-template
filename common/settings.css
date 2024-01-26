@@ -81,12 +81,11 @@
 .settings__section-title-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 100%;
     margin-bottom: 8px;
 }
 .settings__section h3 {
-    width: 100%;
     font-size: 14px;
     font-weight: 600;
     color: rgb(186, 185, 192);
