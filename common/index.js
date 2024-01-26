@@ -16,4 +16,20 @@ import { T_list_sections } from '../dist/src/settingTemplates.js';
 
 	// 최초 handlerbar 컴파일
 	compile(source, initData, initEventManager);
+
+	// 설정 이벤트
+	const $btnAsideSettings = document.querySelector('.e-settings__open-aside');
+	const $btnAsideSettingsClose = document.querySelector(
+		'.e-settings__close-aside',
+	);
+	const $asideSettings = document.querySelector('.e-settings__aside');
+
+	[$btnAsideSettings, $btnAsideSettingsClose].map((item) => {
+		item.addEventListener('click', () => {
+			$asideSettings.attributes['aria-expanded'].value =
+				$asideSettings.attributes['aria-expanded'].value === 'true'
+					? 'false'
+					: 'true';
+		});
+	});
 })();

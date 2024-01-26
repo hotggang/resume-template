@@ -34,15 +34,17 @@ const sectionName: Partial<Record<Partial<SectionName>, string>> = {
 };
 
 const T_Layout = (templateString: string) => /*html*/ `
-	<section>
-		<aside>
+	<button type="button" class="e-settings__open-aside">데이터 설정</button>
+	<aside class="settings__aside e-settings__aside" aria-expanded="false">
+		<section>
+			<button type="button" class="e-settings__close-aside">접기</button>
 			<h2>기본 설정</h2>
 			<p>데이터를 관리합니다.</p>
-			<form class="settings__form">
-				${templateString}	
-			</form>
-		</aside>
-	</section>
+		</section>	
+		<form class="settings__form">
+			${templateString}	
+		</form>
+	</aside>
 `;
 
 const T_TechStackSection = /*html*/ `
