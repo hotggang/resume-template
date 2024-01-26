@@ -69,30 +69,73 @@
 			</div>
 			{{/if}}
 			<div class="universe__content-category">
-				<div class="universe__content-category-career">
-					<div class="universe__content-category-careerTitle">
-						<h3 class="careerTitle">경력</h3>
+				{{#each workExperiences}}
+				<div class="universe__content-category-career categoryWrap">
+					<div class="universe__content-category-careerTitle categoryTitle">
+						<h3 class="career">경력</h3>
 					</div>
-					{{#each workExperiences}}
-					<div class="universe__content-category-WorkExperience">
-						<div class="universe__content-category-WorkExperienceTitle">
-							<h3 class="company">{{companyName}}</h3>
-							<div class="universe__content-category-WorkExperienceDetail">
-								<h3 class="role">{{role}}</h3>
-								<h3 class="department">{{departmentName}}</h3>
+					<div class="universe__content-category-WorkExperience categoryContents">
+						<div class="universe__content-category-WorkExperienceTitle categorySubtitle">
+							<h3 class="company first">{{companyName}}</h3>
+							<div class="universe__content-category-WorkExperienceDetail categoryBelong">
+								<h3 class="role front">{{role}}</h3>
+								<h3 class="department back">{{departmentName}}</h3>
 							</div>
 						</div>
-						<div class="universe__content-category-WorkExperiencePeriod">
+						<div class="universe__content-category-WorkExperiencePeriod categoryPeriod">
 							<h3 class="startedat">{{workStartedAt}}</h3>
 							<h3 class="endedat">{{workEndedAt}}</h3>
 							<h3 class="status">&#40;{{employmentStatus}}&#41;</h3>
 						</div>
-						<div class="universe__content-category-WorkExperienceTask">
+						<div class="universe__content-category-WorkExperienceTask categoryTask">
 							{{assignedTask}}
 						</div>
-					</div>
-					{{/each}}
+					</div> 
 				</div>
+				{{/each}}
+				{{#each foreignLanguages}}
+				<div class="universe__content-category-foreign categoryWrap">
+					<div class="universe__content-category-foreignTitle categoryTitle">
+						<h3 class="foreign">외국어</h3>
+					</div>
+					<div class="universe__content-category-ForeignLanguage categoryContents">
+						<div class="universe__content-category-ForeignLanguageTitle categorySubtitle">
+							<h3 class="languagename first">{{foreignLanguageName}}</h3>
+							<h3 class="languagegrade second">{{foreignLanguageGrade}}</h3>
+						</div>
+					</div>
+				</div>
+				{{/each}}
+				{{#each projects}}
+				<div class="universe__content-category-project categoryWrap">
+					<div class="universe__content-category-projectTitle categoryTitle">
+						<h3 class="project">프로젝트</h3>
+					</div>
+					<div class="universe__content-category-projectProject categoryContents">
+						<div class="universe__content-category-projectTitle categorySubtitle">
+							<h3 class="project first">{{projectName}}</h3>
+							<div class="universe__content-category-projectDetail categoryBelong">
+								<h3 class="organization back">{{projectOrganization}}</h3>
+							</div>
+						</div>
+						<div class="universe__content-category-projectPeriod categoryPeriod">
+							<h3 class="startedat">{{projectStartedAt}}</h3>
+							<h3 class="endedat">{{projectEndedAt}}</h3>
+							<h3 class="status">&#40;{{projectStatus}}&#41;</h3>
+						</div>
+						<div class="universe__content-category-projectDescription categoryTask">
+							{{projectDescription}}
+						</div>
+					</div>
+				</div>
+				{{/each}}
+				{{#each portfolio}}
+				<div class="universe__content-category-portfolioLink categoryWrap">
+					<div class="universe__content-category-portfolioTitle categoryTitle">
+						
+					</div>
+				</div>
+				{{/each}}
 			</div>
 			<div class="universe__bg-img">
 				<img src="img/mintuniverse_blur2.png" alt="백그라운드 이미지" />

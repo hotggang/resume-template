@@ -152,6 +152,8 @@
             width: 20px;
             height: 20px;
             margin: 0 0 0 15px;
+            position: relative;
+            top: 2px;
         }
     }
 
@@ -161,7 +163,7 @@
         h3{
             @include textstyleContent();
 
-            line-height: 1.5;
+            line-height: 1.7;
             display: -webkit-box;
             -webkit-box-orient: vertical;
             word-break: normal;
@@ -170,7 +172,7 @@
     }
 }
 
-//category_경력사항
+//category_이력사항 템플릿
 .universe__content-category{
     width: 100%;
     padding: 50px 30px 50px 30px;
@@ -178,55 +180,60 @@
     border-radius: 10px;
     border-color: $mainColor;
 }
-.universe__content-category-career{
-
+.categoryWrap{
     width: 100%;
     margin: 0 0 50px 0;
 }
-//categoryTitle_경력사항 소제목
-.universe__content-category-careerTitle{
+//이력사항 소제목
+.categoryTitle{
+    width: 100%;
+    margin: 0 0 30px 0;
 
-    .careerTitle{
+    h3{
         @include textstyleCareer01();
     }
 }
-//WorkExperience_경력
-.universe__content-category-WorkExperience{
+//이력사항 내용
+.categoryContents{
 
-    .universe__content-category-WorkExperienceTitle{
+    .categorySubtitle{
         display: flex;
         margin: 0 0 10px 0;
+    }
 
-        .company{
-            @include textstyleCareer02();
+    .first{
+        @include textstyleCareer02();
+    }
+
+    .second{
+        @include textstyleCareer03();
+    }
+
+    .categoryBelong{
+        display: flex;
+
+        .front{
+            @include textstyleCareer03();
+            display: flex;
+            align-items: center;
+
+            &::after{
+                content: '';
+                display: inline-block;
+                margin: 0 6px;
+                width: 3px;
+                height: 3px;
+                border-radius: 10px;
+                background-color: #fff;
+            }
         }
 
-        .universe__content-category-WorkExperienceDetail{
-            display: flex;
-
-            .role{
-                @include textstyleCareer03();
-                display: flex;
-                align-items: center;
-
-                &::after{
-                    content: '';
-                    display: inline-block;
-                    margin: 0 6px;
-                    width: 3px;
-                    height: 3px;
-                    border-radius: 10px;
-                    background-color: #fff;
-                }
-            }
-
-            .department{
-                @include textstyleCareer03();
-            }
+        .back{
+            @include textstyleCareer03();
         }
     }
 
-    .universe__content-category-WorkExperiencePeriod{
+    .categoryPeriod{
         display: flex;
         margin: 0 0 15px 0;
 
@@ -253,7 +260,7 @@
         }
     }
 
-    .universe__content-category-WorkExperienceTask{
+    .categoryTask{
         @include textstyleCareer03();
 
         line-height: 1.5;
