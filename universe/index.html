@@ -35,8 +35,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="universe__content-profile">
-				<div class="universe__content-profileTitle">
+			<div class="universe__content-profile profileWrap">
+				<div class="universe__content-profileTitle titleBar">
 					<h2>PROFILE</h2>
 					<img src="img/mintuniverse_arrow.png" alt="arrow" />
 				</div>
@@ -58,8 +58,8 @@
 				</div>
 			</div>
 			{{#if introduce}}
-			<div class="universe__content-introduce">
-				<div class="universe__content-introduceTitle">
+			<div class="universe__content-introduce profileWrap">
+				<div class="universe__content-introduceTitle titleBar">
 					<h2>한 줄 소개</h2>
 					<img src="img/mintuniverse_arrow.png" alt="arrow">
 				</div>
@@ -83,9 +83,12 @@
 							</div>
 						</div>
 						<div class="universe__content-category-WorkExperiencePeriod categoryPeriod">
-							<h3 class="startedat">{{workStartedAt}}</h3>
-							<h3 class="endedat">{{workEndedAt}}</h3>
-							<h3 class="status">&#40;{{employmentStatus}}&#41;</h3>
+							<div class="periodWrap">
+								<h3 class="startedat">{{workStartedAt}}</h3>
+								<h3 class="endedat">{{workEndedAt}}</h3>
+								<h3 class="duration">&#40;{{employmentStatus}}&#41;</h3>
+							</div>
+							<h3 class="status">{{employmentStatus}}</h3>
 						</div>
 						<div class="universe__content-category-WorkExperienceTask categoryTask">
 							{{assignedTask}}
@@ -119,8 +122,10 @@
 							</div>
 						</div>
 						<div class="universe__content-category-projectPeriod categoryPeriod">
-							<h3 class="startedat">{{projectStartedAt}}</h3>
-							<h3 class="endedat">{{projectEndedAt}}</h3>
+							<div class="periodWrap">
+								<h3 class="startedat">{{projectStartedAt}}</h3>
+								<h3 class="endedat">{{projectEndedAt}}</h3>
+							</div>
 							<h3 class="status">&#40;{{projectStatus}}&#41;</h3>
 						</div>
 						<div class="universe__content-category-projectDescription categoryTask">
@@ -129,12 +134,22 @@
 					</div>
 				</div>
 				{{/each}}
-				{{#each portfolio}}
+				{{#if portfolio}}
+				{{#each links}}
 				<div class="universe__content-category-portfolioLink categoryWrap">
 					<div class="universe__content-category-portfolioTitle categoryTitle">
-						
+						<h3 class="links">포트폴리오</h3>
+					</div>
+					<div class="universe__content-category-portfolioLink categoryContents">
+						<h3 class="portfolioUrl first">URL</h3>
+						<div class="portfolioLink second">
+							<img src="img/mintuniverse_url.png" alt="url아이콘">
+						</div>
 					</div>
 				</div>
+				{{/each}}
+				{{/if}}
+				{{#each Activity}}
 				{{/each}}
 			</div>
 			<div class="universe__bg-img">

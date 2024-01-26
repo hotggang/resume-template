@@ -17,7 +17,6 @@
         width: 800px;
     }
 }
-
 .universe__content{
     position: relative;
     width: 100%;
@@ -36,7 +35,7 @@
     } */
 }
 
-//header 
+//header - 기본정보 영역
 .universe__content-header{
     margin: 0 0 48px 0;
     display: flex;
@@ -82,11 +81,11 @@
 }
 
 //profile
-.universe__content-profile{
+.profileWrap{
 
     margin: 0 0 50px 0;
 
-    .universe__content-profileTitle{
+    .titleBar{
         @include categoryTitleSection();
 
         h2{
@@ -96,6 +95,8 @@
             width: 20px;
             height: 20px;
             margin: 0 0 0 15px;
+            position: relative;
+            top: 2px;
         }
     }
 
@@ -142,21 +143,6 @@
 
     margin: 0 0 50px 0;
 
-    .universe__content-introduceTitle{
-        @include categoryTitleSection();
-
-        h2{
-            @include categoryTitle();
-        }
-        img{
-            width: 20px;
-            height: 20px;
-            margin: 0 0 0 15px;
-            position: relative;
-            top: 2px;
-        }
-    }
-
     .universe__content-introduceContent{
         @include categoryContents();
 
@@ -193,7 +179,7 @@
         @include textstyleCareer01();
     }
 }
-//이력사항 내용
+//이력사항 내용 템플릿
 .categoryContents{
 
     .categorySubtitle{
