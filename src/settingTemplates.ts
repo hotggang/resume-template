@@ -48,7 +48,7 @@ const T_Layout = (templateString: string) => /*html*/ `
 `;
 
 const T_TechStackSection = /*html*/ `
-	<section class="settings__techStack">
+	<section class="settings__section settings__techStack">
 		<h3>기술 스택 섹션</h3>
 		<section>
 			<input type="number" id="settings__techStack-count-toggle" value="1"/>
@@ -57,7 +57,7 @@ const T_TechStackSection = /*html*/ `
 `;
 
 const T_PortfolioLinksSection = /*html*/ `
-	<section class="settings__portfolioLinks">
+	<section class="settings__section settings__portfolioLinks">
 		<h3>포트폴리오 - 링크 섹션</h3>
 		<section>
 			<input type="number" id="settings__portfolioLinks-count-toggle" value="1"/>
@@ -69,22 +69,20 @@ const generateResumeSection = (
 	section: keyof typeof sectionName,
 	fields: Record<string, string>,
 ): string => {
-	const sectionString = section;
-
 	const sectionHTML = `
-    <section class="settings__${sectionName}">
+    <section class="settings__section settings__${section}">
       <h3>${sectionName[section]} 섹션</h3>
       <section>
 				${
-					sectionString === 'basic' || sectionString === 'introduce'
+					section === 'basic' || section === 'introduce'
 						? ''
-						: `<input type="number" id="settings__${sectionString}-count-toggle" value="1"/>`
+						: `<input type="number" id="settings__${section}-count-toggle" value="1"/>`
 				}				
         ${Object.entries(fields)
 					.map(
 						([fieldName]) => `
-            <input type="checkbox" id="settings__${sectionString}-${fieldName}-toggle" checked />
-            <label for="settings__${sectionString}-${fieldName}-toggle">${fieldName}</label>
+            <input type="checkbox" id="settings__${section}-${fieldName}-toggle" checked />
+            <label for="settings__${section}-${fieldName}-toggle">${fieldName}</label>
           `,
 					)
 					.join('')}
