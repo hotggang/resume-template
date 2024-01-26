@@ -34,12 +34,13 @@ const sectionName: Partial<Record<Partial<SectionName>, string>> = {
 };
 
 const T_Layout = (templateString: string) => /*html*/ `
-	<button type="button" class="e-settings__open-aside">데이터 설정</button>
+	<div class="settings__open-aside-wrapper">
+		<button type="button" class="settings__open-aside e-settings__open-aside">⚙️ 데이터 설정</button>
+	<div>
 	<aside class="settings__aside e-settings__aside" aria-expanded="false">
-		<section>
-			<button type="button" class="e-settings__close-aside">접기</button>
-			<h2>기본 설정</h2>
-			<p>데이터를 관리합니다.</p>
+		<section class="settings__aside-title-wrapper">
+			<h2>데이터 설정</h2>			
+			<button type="button" class="e-settings__close-aside">ⅹ</button>
 		</section>	
 		<form class="settings__form">
 			${templateString}	
@@ -49,19 +50,25 @@ const T_Layout = (templateString: string) => /*html*/ `
 
 const T_TechStackSection = /*html*/ `
 	<section class="settings__section settings__techStack">
-		<h3>기술 스택 섹션</h3>
-		<section>
-			<input type="number" id="settings__techStack-count-toggle" value="1"/>
+		<section class="settings__section-title-wrapper">
+			<h3>기술 스택 섹션</h3>			
 		</section>
+		<div class="settings__checkbox-wrapper">
+			<label for="settings__techStack-count-toggle">sections</label>
+			<input type="number" id="settings__techStack-count-toggle" value="1" min="0" max="15"/>
+		</div>
 	</section>
 `;
 
 const T_PortfolioLinksSection = /*html*/ `
 	<section class="settings__section settings__portfolioLinks">
-		<h3>포트폴리오 - 링크 섹션</h3>
-		<section>
-			<input type="number" id="settings__portfolioLinks-count-toggle" value="1"/>
+		<section class="settings__section-title-wrapper">
+			<h3>포트폴리오 - 링크 섹션</h3>			
 		</section>
+		<div class="settings__checkbox-wrapper">
+			<label for="settings__portfolioLinks-count-toggle">sections</label>
+			<input type="number" id="settings__portfolioLinks-count-toggle" value="1" min="0" max="15"/>
+		</div>
 	</section>
 `;
 
@@ -71,22 +78,26 @@ const generateResumeSection = (
 ): string => {
 	const sectionHTML = `
     <section class="settings__section settings__${section}">
-      <h3>${sectionName[section]} 섹션</h3>
-      <section>
+			<section class="settings__section-title-wrapper">
+      	<h3>${sectionName[section]} 섹션</h3>				
+			</section>	
+      <ul class="settings__section-rows">				
 				${
 					section === 'basic' || section === 'introduce'
 						? ''
-						: `<input type="number" id="settings__${section}-count-toggle" value="1"/>`
-				}				
+						: `<li class="settings__checkbox-wrapper"><label for="settings__${section}-count-toggle">sections</label><input type="number" id="settings__${section}-count-toggle" value="1" min="0" max="30"/></li>`
+				}
         ${Object.entries(fields)
 					.map(
 						([fieldName]) => `
-            <input type="checkbox" id="settings__${section}-${fieldName}-toggle" checked />
-            <label for="settings__${section}-${fieldName}-toggle">${fieldName}</label>
+						<li class="settings__checkbox-wrapper">
+            	<label for="settings__${section}-${fieldName}-toggle">${fieldName}</label>
+            	<input type="checkbox" id="settings__${section}-${fieldName}-toggle" class="settings__checkbox" checked />							
+						</li>
           `,
 					)
 					.join('')}
-      </section>
+      </ul>
     </section>
   `;
 
