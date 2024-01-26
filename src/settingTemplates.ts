@@ -12,8 +12,13 @@ import {
 } from './data.js';
 import { ResumeTemplate } from './type.js';
 
-type SectionName = keyof ResumeTemplate & 'basic';
-const sectionName: Record<SectionName, string> = {
+type SectionName = keyof (ResumeTemplate & {
+	basic: string;
+	portfolioAttachFiles: string;
+	portfolioLinks: string;
+});
+
+const sectionName: Partial<Record<Partial<SectionName>, string>> = {
 	basic: '기본',
 	techStack: '기술 스택',
 	workExperiences: '경력',
@@ -58,15 +63,11 @@ const T_PortfolioLinksSection = /*html*/ `
 	</section>
 `;
 
-const isString = (key: string | number | symbol): key is string => {
-	return typeof key === 'string';
-};
-
 const generateResumeSection = (
-	section: keyof SectionName,
+	section: keyof typeof sectionName,
 	fields: Record<string, string>,
 ): string => {
-	const sectionString = isString(section) ? section : section.toString();
+	const sectionString = section;
 
 	const sectionHTML = `
     <section class="settings__${sectionName}">
@@ -95,12 +96,12 @@ const generateResumeSection = (
 export const T_list_sections = () => {
 	const sections = [
 		T_TechStackSection,
+		T_PortfolioLinksSection,
 		generateResumeSection('basic', BASIC),
 		generateResumeSection('workExperiences', WORK_EXPERIENCES[0]),
 		generateResumeSection('foreignLanguages', FOREIGN_LANGUAGES[0]),
 		generateResumeSection('projects', PROJECTS[0]),
 		generateResumeSection('portfolioAttachFiles', PORTFOLIO_ATTACH_FILES[0]),
-		T_PortfolioLinksSection,
 		generateResumeSection('activities', ACTIVITES[0]),
 		generateResumeSection('educations', EDUCATIONS[0]),
 		generateResumeSection('certificates', CERTIFICATES[0]),
