@@ -66,6 +66,11 @@ export const PROJECTS: Project[] = [
 	},
 ];
 
+export const PORTFOLIOS_LINKS: string[] = [
+	'https://www.google.com',
+	'https://www.naver.com',
+];
+
 export const PORTFOLIO_ATTACH_FILES: PortfolioAttachFile[] = [
 	{
 		attachFileName: 'Attach File Name',
@@ -111,7 +116,8 @@ export const FREE_QUESTION_ANSWERS: FreeQuestionAnswer[] = [
 ];
 
 export const INTRODUCE = {
-	introduce: '안녕하세요. 저는 김랠릿입니다. 해당 영역은 짧은 자기소개를 위하여 만들어졌으며, 기재되는 내용에는 테스트 이상의 의미는 없습니다. 이외의 메시지가 출력된다면, 반드시 작업자에게 문의해 주시길 바랍니다.',
+	introduce:
+		'안녕하세요. 저는 김랠릿입니다. 해당 영역은 짧은 자기소개를 위하여 만들어졌으며, 기재되는 내용에는 테스트 이상의 의미는 없습니다. 이외의 메시지가 출력된다면, 반드시 작업자에게 문의해 주시길 바랍니다.',
 };
 
 export const initResumeData: ResumeTemplate = Object.assign(
@@ -129,7 +135,7 @@ export const initResumeData: ResumeTemplate = Object.assign(
 		foreignLanguages: [{ ...FOREIGN_LANGUAGES[0] }],
 		projects: [{ ...PROJECTS[0] }],
 		portfolio: {
-			links: [],
+			links: [PORTFOLIOS_LINKS[0]],
 			attachFiles: [{ ...PORTFOLIO_ATTACH_FILES[0] }],
 		},
 		activities: [{ ...ACTIVITES[0] }],

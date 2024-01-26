@@ -6,6 +6,7 @@ import {
 	FOREIGN_LANGUAGES,
 	FREE_QUESTION_ANSWERS,
 	INTRODUCE,
+	PORTFOLIOS_LINKS,
 	PORTFOLIO_ATTACH_FILES,
 	PROJECTS,
 	TECH_STACK,
@@ -45,7 +46,7 @@ const events = (source: string, data: ResumeTemplate) => {
 const SECTION_WITH_COUNT = {
 	techStack: TECH_STACK.skills,
 	workExperiences: WORK_EXPERIENCES,
-	portfolioLinks: PORTFOLIO_ATTACH_FILES,
+	portfolioLinks: PORTFOLIOS_LINKS,
 	portfolioAttachFiles: PORTFOLIO_ATTACH_FILES,
 	activities: ACTIVITES,
 	educations: EDUCATIONS,
@@ -53,6 +54,18 @@ const SECTION_WITH_COUNT = {
 	foreignLanguages: FOREIGN_LANGUAGES,
 	projects: PROJECTS,
 	freeQuestionAnswers: FREE_QUESTION_ANSWERS,
+};
+
+const dataSeperatedPortfoilo = (data: ResumeTemplate, section: string) => {
+	if (section === 'portfolioLinks') {
+		return data.portfolio?.links ?? [];
+	}
+
+	if (section === 'portfolioAttachFiles') {
+		return data.portfolio?.attachFiles ?? [];
+	}
+
+	return data[section];
 };
 
 const eventsWithCount = (source: string, data: ResumeTemplate) => {
@@ -64,13 +77,13 @@ const eventsWithCount = (source: string, data: ResumeTemplate) => {
 			callback: (selector: HTMLInputElement) => {
 				const maxCount =
 					Number(selector.value) <= 0 ? 0 : Number(selector.value);
-				const dataLength = data[section].length;
+				const dataLength = dataSeperatedPortfoilo(data, section).length;
 				const initialLength = SECTION_WITH_COUNT[section].length;
 
 				let count = 0;
 				if (maxCount <= dataLength) {
 					while (dataLength - maxCount > count) {
-						data[section].pop();
+						dataSeperatedPortfoilo(data, section).pop();
 
 						count++;
 					}
@@ -81,12 +94,15 @@ const eventsWithCount = (source: string, data: ResumeTemplate) => {
 				while (maxCount - dataLength > count) {
 					const itemIndex =
 						initialLength >= count ? count : initialLength % count;
-					data[section].push(SECTION_WITH_COUNT[section][itemIndex]);
+					dataSeperatedPortfoilo(data, section).push(
+						SECTION_WITH_COUNT[section][itemIndex],
+					);
 
 					count++;
 				}
 			},
 		};
+
 		return result;
 	});
 };

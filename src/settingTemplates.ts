@@ -107,11 +107,11 @@ const generateResumeSection = (
 export const T_list_sections = () => {
 	const sections = [
 		T_TechStackSection,
-		T_PortfolioLinksSection,
 		generateResumeSection('basic', BASIC),
 		generateResumeSection('workExperiences', WORK_EXPERIENCES[0]),
 		generateResumeSection('foreignLanguages', FOREIGN_LANGUAGES[0]),
 		generateResumeSection('projects', PROJECTS[0]),
+		T_PortfolioLinksSection,
 		generateResumeSection('portfolioAttachFiles', PORTFOLIO_ATTACH_FILES[0]),
 		generateResumeSection('activities', ACTIVITES[0]),
 		generateResumeSection('educations', EDUCATIONS[0]),

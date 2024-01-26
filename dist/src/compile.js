@@ -1,4 +1,4 @@
-import { ACTIVITES, BASIC, CERTIFICATES, EDUCATIONS, FOREIGN_LANGUAGES, FREE_QUESTION_ANSWERS, INTRODUCE, PORTFOLIO_ATTACH_FILES, PROJECTS, TECH_STACK, WORK_EXPERIENCES, } from './data.js';
+import { ACTIVITES, BASIC, CERTIFICATES, EDUCATIONS, FOREIGN_LANGUAGES, FREE_QUESTION_ANSWERS, INTRODUCE, PORTFOLIOS_LINKS, PORTFOLIO_ATTACH_FILES, PROJECTS, TECH_STACK, WORK_EXPERIENCES, } from './data.js';
 import { E_Settings } from './settingEvents.js';
 const compile = async (source, data, eventManager) => {
     const $content = document.querySelector('.universe__content');
@@ -18,7 +18,7 @@ const events = (source, data) => {
 const SECTION_WITH_COUNT = {
     techStack: TECH_STACK.skills,
     workExperiences: WORK_EXPERIENCES,
-    portfolioLinks: PORTFOLIO_ATTACH_FILES,
+    portfolioLinks: PORTFOLIOS_LINKS,
     portfolioAttachFiles: PORTFOLIO_ATTACH_FILES,
     activities: ACTIVITES,
     educations: EDUCATIONS,
@@ -26,6 +26,15 @@ const SECTION_WITH_COUNT = {
     foreignLanguages: FOREIGN_LANGUAGES,
     projects: PROJECTS,
     freeQuestionAnswers: FREE_QUESTION_ANSWERS,
+};
+const dataSeperatedPortfoilo = (data, section) => {
+    if (section === 'portfolioLinks') {
+        return data.portfolio?.links ?? [];
+    }
+    if (section === 'portfolioAttachFiles') {
+        return data.portfolio?.attachFiles ?? [];
+    }
+    return data[section];
 };
 const eventsWithCount = (source, data) => {
     return Object.keys(SECTION_WITH_COUNT).map((section) => {
@@ -35,23 +44,24 @@ const eventsWithCount = (source, data) => {
             data,
             callback: (selector) => {
                 const maxCount = Number(selector.value) <= 0 ? 0 : Number(selector.value);
-                const dataLength = data[section].length;
+                const dataLength = dataSeperatedPortfoilo(data, section).length;
                 const initialLength = SECTION_WITH_COUNT[section].length;
                 let count = 0;
                 if (maxCount <= dataLength) {
                     while (dataLength - maxCount > count) {
-                        data[section].pop();
+                        dataSeperatedPortfoilo(data, section).pop();
                         count++;
                     }
                     return;
                 }
                 while (maxCount - dataLength > count) {
                     const itemIndex = initialLength >= count ? count : initialLength % count;
-                    data[section].push(SECTION_WITH_COUNT[section][itemIndex]);
+                    dataSeperatedPortfoilo(data, section).push(SECTION_WITH_COUNT[section][itemIndex]);
                     count++;
                 }
             },
         };
+        console.log(result.data.portfolio);
         return result;
     });
 };

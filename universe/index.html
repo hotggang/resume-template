@@ -135,19 +135,19 @@
 				</div>
 				{{/each}}
 				{{#if portfolio}}
-				{{#each links}}
-				<div class="universe__content-category-portfolioLink categoryWrap">
-					<div class="universe__content-category-portfolioTitle categoryTitle">
-						<h3 class="links">포트폴리오</h3>
-					</div>
-					<div class="universe__content-category-portfolioLink categoryContents">
-						<h3 class="portfolioUrl first">URL</h3>
-						<div class="portfolioLink second">
-							<img src="img/mintuniverse_url.png" alt="url아이콘">
+					{{#each portfolio.links}}
+					<div class="universe__content-category-portfolioLink categoryWrap">
+						<div class="universe__content-category-portfolioTitle categoryTitle">
+							<h3 class="links">포트폴리오</h3>
+						</div>
+						<div class="universe__content-category-portfolioLink categoryContents">
+							<h3 class="portfolioUrl first">URL</h3>
+							<div class="portfolioLink second">
+								<img src="img/mintuniverse_url.png" alt="url아이콘">
+							</div>
 						</div>
 					</div>
-				</div>
-				{{/each}}
+					{{/each}}
 				{{/if}}
 				{{#each Activity}}
 				{{/each}}

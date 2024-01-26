@@ -47,6 +47,10 @@ export const PROJECTS = [
         projectOrganization: 'Project Organization',
     },
 ];
+export const PORTFOLIOS_LINKS = [
+    'https://www.google.com',
+    'https://www.naver.com',
+];
 export const PORTFOLIO_ATTACH_FILES = [
     {
         attachFileName: 'Attach File Name',
@@ -102,7 +106,7 @@ export const initResumeData = Object.assign({}, {
     foreignLanguages: [{ ...FOREIGN_LANGUAGES[0] }],
     projects: [{ ...PROJECTS[0] }],
     portfolio: {
-        links: [],
+        links: [PORTFOLIOS_LINKS[0]],
         attachFiles: [{ ...PORTFOLIO_ATTACH_FILES[0] }],
     },
     activities: [{ ...ACTIVITES[0] }],
