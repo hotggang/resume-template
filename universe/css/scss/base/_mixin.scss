@@ -80,15 +80,6 @@
     font-size: 15px;
     font-weight: 600;
     color: #fff;
-
-    &::after{
-        content: '';
-        display: inline-block;
-        margin: 0 15px;
-        width: 2px;
-        height: 15px;
-        background-color: #fff;
-    }
 }
 @mixin textstyleCareer03{
     font-size: 15px;

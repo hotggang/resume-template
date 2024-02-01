@@ -227,7 +227,7 @@
 
     .categoryPeriod{
         display: flex;
-        gap: 15px;
+        gap: 0px;
 
         h3{
             @include textstyleCareer03();
@@ -244,21 +244,16 @@
                 margin: 0 5px;
             }
         }
-        .endedat{
-            &::after{
-                content: '';
-                display: inline-block;
-                margin: 0 0 0 10px;
-            }
-        }
+
         .status{
             @include textstyleCareer03();
         }
     }
     
     .divider{
+        margin: 0 10px 0 10px;
         width: 2px;
-        height: 15px;
+        height: 13px;
         background-color: #fff;
     }
 
