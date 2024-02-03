@@ -1,34 +1,28 @@
 {
   "compilerOptions": {
-    "target": "ESNext", // 타입스크립트파일을 어떤 버전의 자바스크립트로 바꿔줄지 정하는 부분
+    "target": "ES2020", // 타입스크립트파일을 어떤 버전의 자바스크립트로 바꿔줄지 정하는 부분
+    "useDefineForClassFields": true,
     "module": "ESNext", // 자바스크립트 파일간 import 문법을 구현할 때 어떤 문법을 쓸 지 정하는 곳
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
     "declaration": true,  // 컴파일 시 .d.ts 파일도 자동으로 함께 생성 (현재 쓰는 모든 타입이 정의된 파일)
-    "baseUrl": ".",
-    "rootDirs": ["."], // 루트 경로 바꾸기 (js 파일 아웃풋 경로에 영향)
-    "outDir": "./dist/src", // js 파일 아웃풋 경로 바꾸기,
-    "allowJs": true,
-    
-    
 
-    "removeComments": true,
-    "esModuleInterop": true, /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
-    
-    // "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
-    "strict": true /* Enable all strict type-checking options. */,
-    "noImplicitAny": false, // any타입 금지 여부
-    "strictNullChecks": true, // null, undefined 타입 확인
-    "strictFunctionTypes": true,// 함수 파라미터 체크 강하게
-    "strictPropertyInitialization": true, // class constructor 작성 시 타입 체크 강하게
-    "noImplicitThis": true, // this 키워드가 any 타입일 경우 에러내기
-    "alwaysStrict": true, // "use strict" 모드
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
 
-    "skipLibCheck": true, /* Skip type checking all .d.ts files. */
+    /* Linting */
+    "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "noImplicitAny": false, // any타입 금지 여부
     "noImplicitReturns": true, // 함수에서 return 빼먹으면 에러
     "noFallthroughCasesInSwitch": true, // switch문 이상하면 에러
-
-  
+    "strictFunctionTypes": true,// 함수 파라미터 체크 강하게
+    "strictNullChecks": true, // null, undefined 타입 확인
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*"]
 }
