@@ -8,7 +8,7 @@ files=($assetsDir/*)
 # 파일을 각각의 prefix에 따라 폴더로 이동
 for file in "${files[@]}"; do
   filename=$(basename "$file")
-  IFS='_' read -r -a parts <<< "$filename"
+  IFS='-' read -r -a parts <<< "$filename"
   prefix="${parts[0]}"
   folderPath="$outputDir/$prefix"
 
