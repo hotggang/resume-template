@@ -22,150 +22,156 @@
 		<div class="universe__content">
 			<div class="universe__content-header">
 				<div class="universe__content-headerProfile">
-					<img class="sample" src="img/sample-profile.jpg" alt="프로필 샘플">
-					<img class="universe" src="img/universe-profile.png" alt="프로필 영역" />
+					<img class="sample" src="img/sample-profile.jpg" alt="프로필 샘플"/>
+					<img class="universe" src="img/universe-profile.png" alt="프로필 영역"/>
 				</div>
 				<div class="universe__content-headerTitle">
-					<div class="universe__content-headerTitle-name">{{name}}</div>
-					<div class="universe__content-headerTitle-position">{{job}}</div>
-					<div class="universe__content-headerTitle-positionTag">
+					<div class="name">{{name}}</div>
+					<div class="job">{{job}}</div>
+					<div class="techStack">
 						{{#each techStack.skills}}
 						<div>#{{this}}</div>
 						{{/each}}
 					</div>
 				</div>
 			</div>
-			<div class="universe__content-profile profileWrap">
-				<div class="universe__content-profileTitle titleBar">
-					<h2>PROFILE</h2>
-					<img src="img/universe-arrow.png" alt="arrow" />
-				</div>
-				<div class="universe__content-profileContent">
-					<div class="universe__content-profileContent-number">
-						<h3 class="tag">연락처</h3>
-						<h3 class="detail">+{{countryNumber}} {{phoneNumber}}</h3>
-					</div>
-					{{#if email}}
-					<div class="universe__content-profileContent-mail">
-						<h3 class="tag">메일</h3>
-						<h3 class="detail">{{email}}</h3>
-					</div>
-					{{/if}}
-					<div class="universe__content-profileContent-address">
-						<h3 class="tag">주소</h3>
-						<h3 class="detail">{{addressMain}} {{addressBuildingName}}</h3>
-					</div>
-				</div>
-			</div>
-			{{#if introduce}}
-			<div class="universe__content-introduce profileWrap">
-				<div class="universe__content-introduceTitle titleBar">
-					<h2>한 줄 소개</h2>
-					<img src="img/universe-arrow.png" alt="arrow">
-				</div>
-				<div class="universe__content-introduceContent">
-					<h3>{{introduce}} </h3>
-				</div>
-			</div>
-			{{/if}}
 			<div class="universe__content-category">
-				{{#if workExperiences}}
-				<div class="universe__content-category-career categoryWrap">
-					<div class="universe__content-category-careerTitle categoryTitle">
-						<h3 class="career">경력</h3>
+				<div class="universe__content-profile">
+					<div class="universe__content-profileTitle titleBar">
+						<h2>PROFILE</h2>
+						<img src="img/universe-arrow.png" alt="arrow" />
 					</div>
-					{{#each workExperiences}}
-					<div class="universe__content-category-WorkExperience categoryContents">
-						<div class="universe__content-category-WorkExperienceTitle categorySubtitle">
-							<h3 class="company first">{{companyName}}</h3>
-							<div class="divider"></div>
-							<div class="universe__content-category-WorkExperienceDetail categoryBelong">
-								<h3 class="role front">{{role}}</h3>
-								<h3 class="department back">{{departmentName}}</h3>
-							</div>
+					<div class="universe__content-profileContent contentContainer">
+						<div class="number">
+							<h3 class="tag">연락처</h3>
+							<h3 class="detail">+{{countryNumber}} {{phoneNumber}}</h3>
 						</div>
-						<div class="universe__content-category-WorkExperiencePeriod categoryPeriod">
-							<div class="periodWrap first">
-								<h3 class="startedat">{{workStartedAt}}</h3>
-								<h3 class="endedat">{{workEndedAt}}</h3>
-								<h3 class="duration">&#40;{{employmentStatus}}&#41;</h3>
-							</div>
-							<div class="divider"></div>
-							<h3 class="status">{{employmentStatus}}</h3>
+						{{#if email}}
+						<div class="email">
+							<h3 class="tag">메일</h3>
+							<h3 class="detail">{{email}}</h3>
 						</div>
-						<div class="universe__content-category-WorkExperienceTask categoryTask">
-							{{assignedTask}}
+						{{/if}}
+						<div class="address">
+							<h3 class="tag">주소</h3>
+							<h3 class="detail">{{addressMain}} {{addressBuildingName}}</h3>
 						</div>
 					</div>
-					{{/each}}
+				</div>
+				{{#if introduce}}
+				<div class="universe__content-introduce">
+					<div class="universe__content-introduceTitle titleBar">
+						<h2>한 줄 소개</h2>
+						<img src="img/universe-arrow.png" alt="arrow">
+					</div>
+					<div class="universe__content-introduceContent contentContainer">
+						<h3>{{introduce}} </h3>
+					</div>
 				</div>
 				{{/if}}
-				{{#if foreignLanguages}}
-				<div class="universe__content-category-foreign categoryWrap">
-					<div class="universe__content-category-foreignTitle categoryTitle">
-						<h3 class="foreign">외국어</h3>
-					</div>
-					{{#each foreignLanguages}}
-					<div class="universe__content-category-ForeignLanguage categoryContents">
-						<div class="universe__content-category-ForeignLanguageTitle categorySubtitle">
-							<h3 class="languagename first">{{foreignLanguageName}}</h3>
-							<div class="divider"></div>
-							<h3 class="languagegrade second">{{foreignLanguageGrade}}</h3>
+				<div class="universe__content-info">
+					{{#if workExperiences}}
+					<div class="universe__content-category-career categoryContainer">
+						<div class="universe__content-category-careerTitle categoryTitle">
+							<h3 class="career">경력</h3>
+							<div class="titleLine"></div>
 						</div>
-					</div>
-					{{/each}}
-				</div>
-				{{/if}}
-				{{#if projects}}
-				<div class="universe__content-category-project categoryWrap">
-					<div class="universe__content-category-projectTitle categoryTitle">
-						<h3 class="project">프로젝트</h3>
-					</div>
-					{{#each projects}}
-					<div class="universe__content-category-projectProject categoryContents">
-						<div class="universe__content-category-projectTitle categorySubtitle">
-							<h3 class="project first">{{projectName}}</h3>
-							<div class="divider"></div>
-							<div class="universe__content-category-projectDetail categoryBelong">
-								<h3 class="organization back">{{projectOrganization}}</h3>
+						{{#each workExperiences}}
+						<div class="universe__content-category-WorkExperience categoryContents">
+							<div class="universe__content-category-WorkExperienceTitle categorySubtitle">
+								<h3 class="company first">{{companyName}}</h3>
+								<div class="divider"></div>
+								<div class="universe__content-category-WorkExperienceDetail categoryBelong">
+									<h3 class="role front">{{role}}</h3>
+									<h3 class="department back">{{departmentName}}</h3>
+								</div>
 							</div>
-						</div>
-						<div class="universe__content-category-projectPeriod categoryPeriod">
-							<div class="periodWrap first">
-								<h3 class="startedat">{{projectStartedAt}}</h3>
-								<h3 class="endedat">{{projectEndedAt}}</h3>
+							<div class="universe__content-category-WorkExperiencePeriod categoryPeriod">
+								<div class="periodWrap first">
+									<h3 class="startedat">{{workStartedAt}}</h3>
+									<h3 class="endedat">{{workEndedAt}}</h3>
+									<h3 class="duration">&#40;{{employmentStatus}}&#41;</h3>
+								</div>
+								<div class="divider"></div>
+								<h3 class="status">{{employmentStatus}}</h3>
 							</div>
-							<div class="divider"></div>
-							<h3 class="status">{{projectStatus}}</h3>
-						</div>
-						<div class="universe__content-category-projectDescription categoryTask">
-							{{projectDescription}}
-						</div>
-					</div>
-					{{/each}}
-				</div>
-				{{/if}}
-				{{#if portfolio.links}}
-					<div class="universe__content-category-portfolioLink categoryWrap">
-						<div class="universe__content-category-portfolioTitle categoryTitle">
-							<h3 class="links">포트폴리오</h3>
-						</div>
-						{{#each portfolio.links}}
-						<div class="universe__content-category-portfolioLink categoryContents">
-							<h3 class="portfolioUrl first">URL</h3>
-							<div class="divider"></div>
-							<div class="portfolioLink second">
-								<img src="img/universe-url.png" alt="url아이콘">
+							<div class="universe__content-category-WorkExperienceTask categoryTask">
+								{{assignedTask}}
 							</div>
 						</div>
 						{{/each}}
 					</div>
-				{{/if}}
-				{{#each Activity}}
-				{{/each}}
-			</div>
-			<div class="universe__bg-img">
-				<img src="img/universe-blur2.png" alt="백그라운드 이미지" />
+					{{/if}}
+					{{#if foreignLanguages}}
+					<div class="universe__content-category-foreign categoryContainer">
+						<div class="universe__content-category-foreignTitle categoryTitle">
+							<h3 class="foreign">외국어</h3>
+							<div class="titleLine"></div>
+						</div>
+						{{#each foreignLanguages}}
+						<div class="universe__content-category-ForeignLanguage categoryContents">
+							<div class="universe__content-category-ForeignLanguageTitle categorySubtitle">
+								<h3 class="languagename first">{{foreignLanguageName}}</h3>
+								<div class="divider"></div>
+								<h3 class="languagegrade second">{{foreignLanguageGrade}}</h3>
+							</div>
+						</div>
+						{{/each}}
+					</div>
+					{{/if}}
+					{{#if projects}}
+					<div class="universe__content-category-project categoryContainer">
+						<div class="universe__content-category-projectTitle categoryTitle">
+							<h3 class="project">프로젝트</h3>
+							<div class="titleLine"></div>
+						</div>
+						{{#each projects}}
+						<div class="universe__content-category-projectProject categoryContents">
+							<div class="universe__content-category-projectTitle categorySubtitle">
+								<h3 class="project first">{{projectName}}</h3>
+								<div class="divider"></div>
+								<div class="universe__content-category-projectDetail categoryBelong">
+									<h3 class="organization back">{{projectOrganization}}</h3>
+								</div>
+							</div>
+							<div class="universe__content-category-projectPeriod categoryPeriod">
+								<div class="periodWrap first">
+									<h3 class="startedat">{{projectStartedAt}}</h3>
+									<h3 class="endedat">{{projectEndedAt}}</h3>
+								</div>
+								<div class="divider"></div>
+								<h3 class="status">{{projectStatus}}</h3>
+							</div>
+							<div class="universe__content-category-projectDescription categoryTask">
+								{{projectDescription}}
+							</div>
+						</div>
+						{{/each}}
+					</div>
+					{{/if}}
+					{{#if portfolio.links}}
+						<div class="universe__content-category-portfolioLink categoryContainer">
+							<div class="universe__content-category-portfolioTitle categoryTitle">
+								<h3 class="links">포트폴리오</h3>
+								<div class="titleLine"></div>
+							</div>
+							{{#each portfolio.links}}
+							<div class="universe__content-category-portfolioLink categoryContents">
+								<h3 class="portfolioUrl first">URL</h3>
+								<div class="divider"></div>
+								<div class="portfolioLink second">
+									<img src="img/universe-url.png" alt="url아이콘">
+								</div>
+							</div>
+							{{/each}}
+						</div>
+					{{/if}}
+					{{#each Activity}}
+					{{/each}}
+				</div>
+				<div class="universe__bg-img">
+					<img src="img/universe-blur2.png" alt="백그라운드 이미지" />
+				</div>
 			</div>
 		</div>
 	</main>

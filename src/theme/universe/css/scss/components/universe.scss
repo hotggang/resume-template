@@ -2,7 +2,7 @@
 @import "../base/mixin";
 
 
-//메인 css
+//template 틀 css
 .universe__main{
     width: 100%;
     max-width: 62rem;
@@ -14,6 +14,7 @@
 .universe__bg-img{
     position: absolute;
     left: -300px;
+    bottom: -300px;
 
     & > img{
         width: 800px;
@@ -21,6 +22,8 @@
 }
 .universe__content{
     position: relative;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     max-width: 62rem;
     margin: 0 auto;
@@ -31,22 +34,15 @@
 
     background-image: url(../img/universe-blur1.png);
     background-repeat: no-repeat;
-
-    /* @media screen and (max-width: 768px){
-        
-    } */
 }
 
 
 //header - 기본정보 영역
 .universe__content-header{
-    margin: 0 0 48px 0;
+    margin: 0 0 60px 0;
     display: flex;
-
-    @media screen and (max-width: 768px){
-        flex-direction: column;
-    }
 }
+//프로필 이미지 영역
 .universe__content-headerProfile{
 
     .sample{
@@ -56,7 +52,6 @@
         height: 150px;
         border-radius: 100%;
     }
-
     .universe{
         width: 262px;
         height: 150px;
@@ -69,123 +64,122 @@
     position: relative;
     right: 50px;
 
-    .universe__content-headerTitle-name{
-        @include headerName();
+    .name{
+        margin: 0 0 20px 0;
+        font-size: 2.4rem;
+        font-weight: 600;
+        color: #fff;
     }
-    .universe__content-headerTitle-position{
-        @include headerPosition();
+    .job{
+        margin: 0 0 25px 0;
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #fff;
     }
-    .universe__content-headerTitle-positionTag{
-        display: flex
+    .techStack{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
     }
-    .universe__content-headerTitle-positionTag div{
-        @include headerTag();
+    .techStack > div{
+        background-color: $mainColor;
+        border-radius: 20px;
+        padding: 6px 15px;
+        font-weight: 400;
+        font-size: 0.9rem;
     }
+}
+
+
+//profile, introduce 공통 css
+.universe__content-category{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+/* 카테고리 타이틀 형식 */
+.titleBar{
+    @include titleBarStyle();
+}
+/* propile, introduce 적용되는 내용 */
+.contentContainer{
+    padding: 25px 30px 25px 30px;
+    border: solid 1px $borderColor;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 
 //profile
-.profileWrap{
+.universe__content-profileContent{
 
-    margin: 0 0 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
-    .titleBar{
-        @include categoryTitleSection();
+    .number, .email, .address{
+        display: grid;
+        grid-template-columns: 20% 80%;
 
-        h2{
-            @include categoryTitle();
+        .tag{
+            width: 140px;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 600;
+            color: #d9d9d9;
         }
-        img{
-            width: 20px;
-            height: 20px;
-            margin: 0 0 0 15px;
-            position: relative;
-            top: 2px;
-        }
-    }
-
-    .universe__content-profileContent{
-        width: 100%;
-        padding: 22px 30px 22px 30px;
-        border: solid 1px $borderColor;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-
-        .universe__content-profileContent-number, .universe__content-profileContent-mail, .universe__content-profileContent-address{
-            display: flex;
-            margin: 0 0 20px 0;
-
-            &:last-child{
-                margin: 0;
-            }
-
-            .tag{
-                flex-shrink: 0;
-                width: 140px;
-                font-size: 15px;
-                line-height: 1.5;
-                font-weight: 600;
-                color: #d9d9d9;
-            }
-
-            .detail{
-                font-size: 15px;
-                font-weight: 400;
-                line-height: 1.5;
-                color: #fff;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                word-break: normal;
-                word-wrap: break-word;
-            }
+        .detail{
+            @include contentparagraph();
         }
     }
 }
-
 
 //introduce_한 줄 소개
-.universe__content-introduce{
+.universe__content-introduceContent{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 
-    margin: 0 0 50px 0;
-
-    .universe__content-introduceContent{
-        @include categoryContents();
-
-        h3{
-            @include textstyleContent();
-
-            line-height: 1.7;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            word-break: normal;
-            word-wrap: break-word;            
-        }
+    h3{
+        @include contentparagraph();        
     }
 }
 
-
-//category_이력사항 템플릿
-.universe__content-category{
+//category_이력사항 공통 css
+.universe__content-info{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
     padding: 50px 30px 50px 30px;
     border: solid 1px $borderColor;
     border-radius: 10px;
     border-color: $mainColor;
 }
-.categoryWrap{
-    width: 100%;
-    margin: 0 0 50px 0;
+.categoryContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
-//이력사항 소제목
+/* 이력사항 소제목 */
 .categoryTitle{
-    width: 100%;
-    margin: 0 0 30px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
 
     h3{
         @include textstyleCareer01();
     }
+    .titleLine{
+        width: 100%;
+        height: 1px;
+        background-color: $mainColor;
+    }
 }
-//이력사항 내용 템플릿
+
+//category_이력사항 내용 템플릿
 .categoryContents{
 
     .categorySubtitle{

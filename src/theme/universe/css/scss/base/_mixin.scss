@@ -1,88 +1,56 @@
-//header_name
-@mixin headerName{
-    margin: 0 0 20px 0;
-    font-size: 40px;
-    font-weight: 600;
-    color: #fff;
-}
-
-//header_position
-@mixin headerPosition{
-    margin: 0 0 15px 0;
-    font-size: 24px;
-    font-weight: 600;
-    color: #fff;
-}
-
-//header_tag
-@mixin headerTag{
-    background-color: $mainColor;
-    border-radius: 20px;
-    margin: 0 10px 0 0;
-    padding: 6px 15px;
-    font-weight: 400;
-    font-size: 14px
-}
-
 //category
-@mixin categoryTitleSection{
+@mixin titleBarStyle{
     display: flex;
+    flex-direction: row;
+    gap: 15px;
     align-items: center;
     padding: 0 0 0 30px;
     height: 55px;
     background-color: $mainColor;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-}
-@mixin categoryTitle{
-    font-size: 20px;
-    font-weight: 600;
-    position: relative;
-    top: 2px;
-}
-@mixin categoryContents{
-    width: 100%;
-    display: flex;
-    padding: 22px 30px 22px 30px;
-    flex-direction: row;
-    border: solid 1px $borderColor;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+
+    h2{
+        font-size: 1.3rem;
+        font-weight: 600;
+        position: relative;
+        top: 2px;
+    }
+
+    img{
+        width: 20px;
+        height: 20px;
+    }
 }
 
-//content textstyle
-@mixin textstyleContent{
-    font-size: 15px;
+//profile, introduce contents
+@mixin contentparagraph{
+    font-size: 0.9rem;
     font-weight: 400;
+    line-height: 1.7;
     color: #fff;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-break: normal;
+    word-wrap: break-word;    
 }
 
+//career subtitle
 @mixin textstyleCareer01{
-    display: flex;
-    align-items: center;
-    margin: 0 0 30px 0;
-    font-size: 20px;
+    font-size: 1.2rem;
     font-weight: 600;
     color: $mainColor;
-
-    &::after{
-        content: '';
-        display: block;
-        flex-grow: 1;
-        margin: 0 0 0 20px;
-        height: 1px;
-        background-color: $mainColor;
-    }
 }
 @mixin textstyleCareer02{
     display: flex;
     align-items: center;
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: 600;
     color: #fff;
 }
 @mixin textstyleCareer03{
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: 400;
     color: #fff;
 }

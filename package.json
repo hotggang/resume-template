@@ -6,7 +6,9 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc && vite build && sh ./scripts/build-separator.sh",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"prepare": "husky install",
+		"test": "echo \"Error: no test specified\""
 	},
 	"devDependencies": {
 		"typescript": "^5.2.2",
