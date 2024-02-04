@@ -30,7 +30,7 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
 		departmentName: 'Web Development',
 		role: 'Frontend Developer',
 		workType: '업무 타입1',
-		employmentStatus: '업무 상태1',
+		employmentStatus: '재직 중',
 		workStartedAt: '2019-01-01',
 		workEndedAt: '2023-02-01',
 		assignedTask:
@@ -41,7 +41,7 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
 		departmentName: '디자인팀',
 		role: '주임',
 		workType: '정규직',
-		employmentStatus: '재직 중',
+		employmentStatus: '퇴사',
 		workStartedAt: '2023-01-01',
 		workEndedAt: '2023-02-01',
 		assignedTask: '무슨 말을 길게 써야 있어보일까',

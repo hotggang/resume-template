@@ -79,18 +79,20 @@
 						{{#each workExperiences}}
 						<div class="universe__content-category-WorkExperience categoryContents">
 							<div class="universe__content-category-WorkExperienceTitle categorySubtitle">
-								<h3 class="company first">{{companyName}}</h3>
+								<h3 class="company front">{{companyName}}</h3>
 								<div class="divider"></div>
 								<div class="universe__content-category-WorkExperienceDetail categoryBelong">
-									<h3 class="role front">{{role}}</h3>
+									<h3 class="role back">{{role}}</h3>
+									<div class="dividerCircle"></div>
 									<h3 class="department back">{{departmentName}}</h3>
 								</div>
 							</div>
 							<div class="universe__content-category-WorkExperiencePeriod categoryPeriod">
 								<div class="periodWrap first">
 									<h3 class="startedat">{{workStartedAt}}</h3>
+									<div class="dividerHyphen"></div>
 									<h3 class="endedat">{{workEndedAt}}</h3>
-									<h3 class="duration">&#40;{{employmentStatus}}&#41;</h3>
+									<h3 class="duration">&#40; 3년차 &#41;</h3>
 								</div>
 								<div class="divider"></div>
 								<h3 class="status">{{employmentStatus}}</h3>
@@ -111,9 +113,9 @@
 						{{#each foreignLanguages}}
 						<div class="universe__content-category-ForeignLanguage categoryContents">
 							<div class="universe__content-category-ForeignLanguageTitle categorySubtitle">
-								<h3 class="languagename first">{{foreignLanguageName}}</h3>
+								<h3 class="languagename front">{{foreignLanguageName}}</h3>
 								<div class="divider"></div>
-								<h3 class="languagegrade second">{{foreignLanguageGrade}}</h3>
+								<h3 class="languagegrade back">{{foreignLanguageGrade}}</h3>
 							</div>
 						</div>
 						{{/each}}
@@ -128,7 +130,7 @@
 						{{#each projects}}
 						<div class="universe__content-category-projectProject categoryContents">
 							<div class="universe__content-category-projectTitle categorySubtitle">
-								<h3 class="project first">{{projectName}}</h3>
+								<h3 class="project front">{{projectName}}</h3>
 								<div class="divider"></div>
 								<div class="universe__content-category-projectDetail categoryBelong">
 									<h3 class="organization back">{{projectOrganization}}</h3>
@@ -137,6 +139,7 @@
 							<div class="universe__content-category-projectPeriod categoryPeriod">
 								<div class="periodWrap first">
 									<h3 class="startedat">{{projectStartedAt}}</h3>
+									<div class="dividerHyphen"></div>
 									<h3 class="endedat">{{projectEndedAt}}</h3>
 								</div>
 								<div class="divider"></div>
@@ -157,10 +160,12 @@
 							</div>
 							{{#each portfolio.links}}
 							<div class="universe__content-category-portfolioLink categoryContents">
-								<h3 class="portfolioUrl first">URL</h3>
-								<div class="divider"></div>
-								<div class="portfolioLink second">
-									<img src="img/universe-url.png" alt="url아이콘">
+								<div class="categorySubtitle">
+									<h3 class="portfolioUrl front">URL</h3>
+									<div class="divider"></div>
+									<div class="portfolioLink back">
+										<img class="portfolioLinkIcon" src="img/universe-url.png" alt="url아이콘">
+									</div>
 								</div>
 							</div>
 							{{/each}}

@@ -166,11 +166,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
     gap: 20px;
 
     h3{
-        @include textstyleCareer01();
+        @include titleStyle();
     }
     .titleLine{
         width: 100%;
@@ -178,98 +177,82 @@
         background-color: $mainColor;
     }
 }
+/* 구분선 */
+.divider{
+    width: 2px;
+    height: 13px;
+    background-color: #fff;
+    position: relative;
+    top: 1px;
+}
+.dividerCircle{
+    width: 4px;
+    height: 4px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.dividerHyphen{
+    width: 8px;
+    height: 2px;
+    background-color: #fff;
+}
+/* textstyle */
+.front{
+    @include subtitleStyle();
+}
+.back{
+    @include subtextStyle();
+}
+
 
 //category_이력사항 내용 템플릿
 .categoryContents{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 
     .categorySubtitle{
         display: flex;
-        margin: 0 0 10px 0;
-    }
-
-    .first{
-        @include textstyleCareer02();
-    }
-
-    .second{
-        @include textstyleCareer03();
+        gap: 10px;
     }
 
     .categoryBelong{
         display: flex;
-
-        .front{
-            @include textstyleCareer03();
-            display: flex;
-            align-items: center;
-
-            &::after{
-                content: '';
-                display: inline-block;
-                margin: 0 6px;
-                width: 3px;
-                height: 3px;
-                border-radius: 10px;
-                background-color: #fff;
-            }
-        }
-
-        .back{
-            @include textstyleCareer03();
-        }
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
     }
 
     .categoryPeriod{
         display: flex;
-        gap: 0px;
+        flex-direction: row;
+        gap: 10px;
 
         h3{
-            @include textstyleCareer03();
+            @include subtextStyle();
         }
 
         .periodWrap{
             display: flex;
+            align-items: center;
+            gap: 8px;
         }
-
-        .startedat{
-            &::after{
-                content: '-';
-                display: inline-block;
-                margin: 0 5px;
-            }
-        }
-
-        .status{
-            @include textstyleCareer03();
-        }
-    }
-    
-    .divider{
-        margin: 0 10px 0 10px;
-        width: 2px;
-        height: 13px;
-        background-color: #fff;
     }
 
     .categoryTask{
-        @include textstyleCareer03();
+        @include subtextStyle();
 
         line-height: 1.5;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            word-break: normal;
-            word-wrap: break-word;   
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        word-break: normal;
+        word-wrap: break-word;   
     }
 }
 
 
 //별도 수정
-.universe__content-category-projectProject{
-    
-    .universe__content-category-projectPeriod{
-
-        .first .endedat{
-            margin: 0;
-        }
-    }
+.portfolioLinkIcon{
+    position: relative;
+    bottom: 3px;
 }

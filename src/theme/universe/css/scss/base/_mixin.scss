@@ -37,20 +37,18 @@
 }
 
 //career subtitle
-@mixin textstyleCareer01{
-    width: 100px;
+@mixin titleStyle{
+    flex: 1 0 auto;
     font-size: 1.2rem;
     font-weight: 600;
     color: $mainColor;
 }
-@mixin textstyleCareer02{
-    display: flex;
-    align-items: center;
+@mixin subtitleStyle{
     font-size: 1rem;
     font-weight: 600;
     color: #fff;
 }
-@mixin textstyleCareer03{
+@mixin subtextStyle{
     font-size: 1rem;
     font-weight: 400;
     color: #fff;
