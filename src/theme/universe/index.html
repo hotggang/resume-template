@@ -128,13 +128,11 @@
 							<div class="titleLine"></div>
 						</div>
 						{{#each projects}}
-						<div class="universe__content-category-projectProject categoryContents">
-							<div class="universe__content-category-projectTitle categorySubtitle">
+						<div class="universe__content-category-projectTeam categoryContents">
+							<div class="universe__content-category-projectTeamtitle categorySubtitle">
 								<h3 class="project front">{{projectName}}</h3>
 								<div class="divider"></div>
-								<div class="universe__content-category-projectDetail categoryBelong">
-									<h3 class="organization back">{{projectOrganization}}</h3>
-								</div>
+								<h3 class="organization back">{{projectOrganization}}</h3>
 							</div>
 							<div class="universe__content-category-projectPeriod categoryPeriod">
 								<div class="periodWrap first">
@@ -142,8 +140,7 @@
 									<div class="dividerHyphen"></div>
 									<h3 class="endedat">{{projectEndedAt}}</h3>
 								</div>
-								<div class="divider"></div>
-								<h3 class="status">{{projectStatus}}</h3>
+								<h3 class="status">&#40; {{projectStatus}} &#41;</h3>
 							</div>
 							<div class="universe__content-category-projectDescription categoryTask">
 								{{projectDescription}}
@@ -153,26 +150,119 @@
 					</div>
 					{{/if}}
 					{{#if portfolio.links}}
-						<div class="universe__content-category-portfolioLink categoryContainer">
-							<div class="universe__content-category-portfolioTitle categoryTitle">
-								<h3 class="links">포트폴리오</h3>
-								<div class="titleLine"></div>
-							</div>
-							{{#each portfolio.links}}
-							<div class="universe__content-category-portfolioLink categoryContents">
-								<div class="categorySubtitle">
-									<h3 class="portfolioUrl front">URL</h3>
-									<div class="divider"></div>
-									<div class="portfolioLink back">
-										<img class="portfolioLinkIcon" src="img/universe-url.png" alt="url아이콘">
-									</div>
-								</div>
-							</div>
-							{{/each}}
+					<div class="universe__content-category-portfolioLink categoryContainer">
+						<div class="universe__content-category-portfolioTitle categoryTitle">
+							<h3 class="links">포트폴리오</h3>
+							<div class="titleLine"></div>
 						</div>
+						{{#each portfolio.links}}
+						<div class="universe__content-category-portfolioLink categoryContents">
+							<div class="categorySubtitle">
+								<h3 class="portfolioUrl front">URL</h3>
+								<div class="divider"></div>
+								<img class="portfolioLinkIcon" src="img/universe-url.svg" alt="url">
+								<h3 class="portfolioLink front">https://www.sample.com</h3>
+							</div>
+						</div>
+						{{/each}}
+						{{#each portfolio.attachFiles}}
+						<div class="universe__content-category-portfolioAttach categoryContents">
+							<div class="categorySubtitle">
+								<h3 class="portfolioAttach front">첨부파일</h3>
+								<div class="divider"></div>
+								<img class="portfolioDownloadIcon" src="img/universe-file.svg" alt="다운로드">
+								<h3 class="portfolioDownload front">portfolio_성은주.pdf</h3>
+							</div>
+						</div>
+						{{/each}}
+					</div>	
 					{{/if}}
-					{{#each Activity}}
-					{{/each}}
+					{{#if activities}}
+					<div class="universe__content-category-activity categoryContainer">
+						<div class="universe__content-category-activityTitle categoryTitle">
+							<h3 class="activity">대외활동</h3>
+							<div class="titleLine"></div>
+						</div>
+						{{#each activities}}
+						<div class="universe__content-category-activityExternal categoryContents">
+							<div class="universe__content-category-activityExternalTitle categorySubtitle">
+								<h3 class="activityName front">{{activityName}}</h3>
+								<div class="divider"></div>
+								<h3 class="organization back">{{activityOrganization}}</h3>
+								<h3 class="activityYear back">&#40; {{activityYear}} &#41;</h3>
+							</div>
+							<div class="universe__content-category-activityDescription categoryTask">
+								{{activityDescription}}
+							</div>
+						</div>
+						{{/each}}
+					</div>	
+					{{/if}}
+					{{#if educations}}
+					<div class="universe__content-category-education categoryContainer">
+						<div class="universe__content-category-educationTitle categoryTitle">
+							<h3 class="education">교육활동</h3>
+							<div class="titleLine"></div>
+						</div>
+						{{#each educations}}
+						<div class="universe__content-category-educationActivity categoryContents">
+							<div class="universe__content-category-educationActivityTitle categorySubtitle">
+								<h3 class="schoolName front">{{schoolName}}</h3>
+								<h3 class="schoolType back">&#40; {{schoolType}} &#41;</h3>
+								<div class="divider"></div>
+								<h3 class="major back">{{major}}</h3>
+							</div>
+							<div class="universe__content-category-educationPeriod categoryPeriod">
+								<div class="periodWrap first">
+									<h3 class="startedat">{{enrollmentStartedAt}}</h3>
+									<div class="dividerHyphen"></div>
+									<h3 class="endedat">{{enrollmentEndedAt}}</h3>
+								</div>
+								<h3 class="status">&#40; {{graduationStatus}} &#41;</h3>
+							</div>
+						</div>
+						{{/each}}
+					</div>
+					{{/if}}
+					{{#if certificates}}
+					<div class="universe__content-category-certificate categoryContainer">
+						<div class="universe__content-category-certificateTitle categoryTitle">
+							<h3 class="education">자격증</h3>
+							<div class="titleLine"></div>
+						</div>
+						{{#each certificates}}
+						<div class="universe__content-category-certificateLisence categoryContents">
+							<div class="universe__content-category-certificateLisenceTitle categorySubtitle">
+								<h3 class="certificateName front">{{certificateName}}</h3>
+								<h3 class="certificateGrade back">{{certificateGrade}}</h3>
+								<div class="divider"></div>
+								<h3 class="certificateOrganization back"> {{certificateOrganization}}</h3>
+								<h3 class="certificatedAt back">&#40; {{certificatedAt}} &#41;</h3>
+							</div>
+						</div>
+						{{/each}}
+					</div>
+					{{/if}}
+					{{#if freeQuestionAnswers}}
+					<div class="universe__content-QnA qnaContainer">
+						<div class="universe__content-QnATitle categoryTitle">
+							<h3 class="education">지원자에게 묻는 질문</h3>
+							<div class="titleLine"></div>
+						</div>
+						{{#each freeQuestionAnswers}}
+						<div class="universe__content-QnAList">
+							<div class="questionLine qnaline">
+								<img class="questionIcon" src="img/universe-question.svg" alt="질문">
+								<h3 class="question questionStyle">{{question}}</h3>
+							</div>
+							<div class="answerLine qnaline">
+								<img class="answerIcon" src="img/universe-answer.svg" alt="답변">
+								<h3 class="answer answerStyle">{{answer}}</h3>
+							</div>
+						</div>
+						{{/each}}
+					</div>
+					{{/if}}
 				</div>
 				<div class="universe__bg-img">
 					<img src="img/universe-blur2.png" alt="백그라운드 이미지" />

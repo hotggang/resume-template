@@ -110,8 +110,8 @@ export const CERTIFICATES: Certificate[] = [
 
 export const FREE_QUESTION_ANSWERS: FreeQuestionAnswer[] = [
 	{
-		question: '질문',
-		answer: '답변',
+		question: '자기소개서 이외에 해당 포지션을 선택한 이유와 우리 회사에 지원하게 된 동기를 작성해주세요',
+		answer: 'UIUX 프로젝트를 진행하며 다양한 팀과 소통하여 문제를 해결해 나가는 과정이 흥미로웠고, 평소에 해당 분야에 대해 관심이 많아 프로덕트를 개발하고 싶었습니다.',
 	},
 ];
 
