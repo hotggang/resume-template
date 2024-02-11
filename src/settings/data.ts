@@ -29,7 +29,7 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
 		companyName: 'ABC Corp',
 		departmentName: 'Web Development',
 		role: 'Frontend Developer',
-		workType: '업무 타입1',
+		workType: '정규직',
 		employmentStatus: '재직 중',
 		workStartedAt: '2019-01-01',
 		workEndedAt: '2023-02-01',
