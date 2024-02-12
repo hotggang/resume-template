@@ -1,3 +1,4 @@
+import { cloneDeep } from 'lodash-es';
 import compile from './compile';
 import { initResumeData } from './data';
 import { eventManager } from './settingEvents';
@@ -12,7 +13,7 @@ import { T_list_sections } from './settingTemplates';
 	const source = document.querySelector('.universe__content')!.innerHTML;
 
 	const initEventManager = eventManager();
-	const initData = Object.assign({}, initResumeData);
+	const initData = cloneDeep(initResumeData);
 
 	// 최초 handlerbar 컴파일
 	compile(source, initData, initEventManager);

@@ -1,3 +1,4 @@
+import { cloneDeep } from 'lodash-es';
 import {
 	ACTIVITES,
 	BASIC,
@@ -43,7 +44,7 @@ const events = (source: string, data: ResumeTemplate) => {
 	];
 };
 
-const SECTION_WITH_COUNT = {
+const defaultSectionWithCount = cloneDeep({
 	techStack: TECH_STACK.skills,
 	workExperiences: WORK_EXPERIENCES,
 	portfolioLinks: PORTFOLIOS_LINKS,
@@ -54,7 +55,7 @@ const SECTION_WITH_COUNT = {
 	foreignLanguages: FOREIGN_LANGUAGES,
 	projects: PROJECTS,
 	freeQuestionAnswers: FREE_QUESTION_ANSWERS,
-};
+});
 
 const dataSeperatedPortfoilo = (data: ResumeTemplate, section: string) => {
 	if (section === 'portfolioLinks') {
@@ -69,7 +70,7 @@ const dataSeperatedPortfoilo = (data: ResumeTemplate, section: string) => {
 };
 
 const eventsWithCount = (source: string, data: ResumeTemplate) => {
-	return Object.keys(SECTION_WITH_COUNT).map((section) => {
+	return Object.keys(defaultSectionWithCount).map((section) => {
 		const result = {
 			selectorString: `#settings__${section}-count-toggle`,
 			source,
@@ -78,7 +79,7 @@ const eventsWithCount = (source: string, data: ResumeTemplate) => {
 				const maxCount =
 					Number(selector.value) <= 0 ? 0 : Number(selector.value);
 				const dataLength = dataSeperatedPortfoilo(data, section).length;
-				const initialLength = SECTION_WITH_COUNT[section].length;
+				const initialLength = defaultSectionWithCount[section].length;
 
 				let count = 0;
 				if (maxCount <= dataLength) {
@@ -95,7 +96,7 @@ const eventsWithCount = (source: string, data: ResumeTemplate) => {
 					const itemIndex =
 						initialLength >= count ? count : initialLength % count;
 					dataSeperatedPortfoilo(data, section).push(
-						SECTION_WITH_COUNT[section][itemIndex],
+						defaultSectionWithCount[section][itemIndex],
 					);
 
 					count++;
@@ -107,7 +108,7 @@ const eventsWithCount = (source: string, data: ResumeTemplate) => {
 	});
 };
 
-const SECTION_WITH_CHECKBOX = {
+const defaultSectionWithCheckbox = cloneDeep({
 	basic: BASIC,
 	introduce: INTRODUCE,
 	workExperiences: WORK_EXPERIENCES[0],
@@ -118,11 +119,11 @@ const SECTION_WITH_CHECKBOX = {
 	educations: EDUCATIONS[0],
 	certificates: CERTIFICATES[0],
 	freeQuestionAnswers: FREE_QUESTION_ANSWERS[0],
-};
+});
 
 const eventsWithCheckbox = (source: string, data: ResumeTemplate) => {
-	return Object.keys(SECTION_WITH_CHECKBOX).flatMap((section) => {
-		const itemsBySection = SECTION_WITH_CHECKBOX[section];
+	return Object.keys(defaultSectionWithCheckbox).flatMap((section) => {
+		const itemsBySection = defaultSectionWithCheckbox[section];
 
 		const result = Object.keys(itemsBySection).map((itemKey) => {
 			return {

@@ -1,3 +1,4 @@
+import { cloneDeep } from 'lodash-es';
 import {
 	Activity,
 	Certificate,
@@ -110,8 +111,10 @@ export const CERTIFICATES: Certificate[] = [
 
 export const FREE_QUESTION_ANSWERS: FreeQuestionAnswer[] = [
 	{
-		question: '자기소개서 이외에 해당 포지션을 선택한 이유와 우리 회사에 지원하게 된 동기를 작성해주세요',
-		answer: 'UIUX 프로젝트를 진행하며 다양한 팀과 소통하여 문제를 해결해 나가는 과정이 흥미로웠고, 평소에 해당 분야에 대해 관심이 많아 프로덕트를 개발하고 싶었습니다.',
+		question:
+			'자기소개서 이외에 해당 포지션을 선택한 이유와 우리 회사에 지원하게 된 동기를 작성해주세요',
+		answer:
+			'UIUX 프로젝트를 진행하며 다양한 팀과 소통하여 문제를 해결해 나가는 과정이 흥미로웠고, 평소에 해당 분야에 대해 관심이 많아 프로덕트를 개발하고 싶었습니다.',
 	},
 ];
 
@@ -120,29 +123,26 @@ export const INTRODUCE = {
 		'안녕하세요. 저는 김랠릿입니다. 해당 영역은 짧은 자기소개를 위하여 만들어졌으며, 기재되는 내용에는 테스트 이상의 의미는 없습니다. 이외의 메시지가 출력된다면, 반드시 작업자에게 문의해 주시길 바랍니다.',
 };
 
-export const initResumeData: ResumeTemplate = Object.assign(
-	{},
-	{
-		...BASIC,
-		...INTRODUCE,
-		name: '김랠릿',
-		countryNumber: '82',
-		addressMain: '서울특별시 구로구 임의로 1길',
-		addressBuildingName: '23 가산중앙센트럴아파트',
-		zipCode: '',
-		techStack: TECH_STACK,
-		workExperiences: [{ ...WORK_EXPERIENCES[0] }],
-		foreignLanguages: [{ ...FOREIGN_LANGUAGES[0] }],
-		projects: [{ ...PROJECTS[0] }],
-		portfolio: {
-			links: [PORTFOLIOS_LINKS[0]],
-			attachFiles: [{ ...PORTFOLIO_ATTACH_FILES[0] }],
-		},
-		activities: [{ ...ACTIVITES[0] }],
-		educations: [{ ...EDUCATIONS[0] }],
-		certificates: [{ ...CERTIFICATES[0] }],
-		freeQuestionAnswers: [{ ...FREE_QUESTION_ANSWERS[0] }],
-		resumeSequence: {},
-		cdnDomain: '',
+export const initResumeData: ResumeTemplate = cloneDeep({
+	...BASIC,
+	...INTRODUCE,
+	name: '김랠릿',
+	countryNumber: '82',
+	addressMain: '서울특별시 구로구 임의로 1길',
+	addressBuildingName: '23 가산중앙센트럴아파트',
+	zipCode: '',
+	techStack: TECH_STACK,
+	workExperiences: [WORK_EXPERIENCES[0]],
+	foreignLanguages: [FOREIGN_LANGUAGES[0]],
+	projects: [PROJECTS[0]],
+	portfolio: {
+		links: [PORTFOLIOS_LINKS[0]],
+		attachFiles: [PORTFOLIO_ATTACH_FILES[0]],
 	},
-);
+	activities: [ACTIVITES[0]],
+	educations: [EDUCATIONS[0]],
+	certificates: [CERTIFICATES[0]],
+	freeQuestionAnswers: [FREE_QUESTION_ANSWERS[0]],
+	resumeSequence: {},
+	cdnDomain: '',
+});
