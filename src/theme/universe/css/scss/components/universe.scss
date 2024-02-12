@@ -304,6 +304,9 @@
 .portfolioLink, .portfolioDownload{
     text-decoration: underline;
 }
+.portfolioDownload{
+    cursor: pointer;
+}
 .universe__content-QnATitle{
     margin: 0 0 10px 0;
 }
