@@ -11,11 +11,11 @@
 		"test": "echo \"Error: no test specified\""
 	},
 	"devDependencies": {
-		"typescript": "^5.2.2",
-		"vite": "^5.0.8",
 		"eslint-config-prettier": "^9.1.0",
 		"husky": "^8.0.0",
-		"lodash": "^4.17.21",
-		"prettier": "^3.1.1"
+		"lodash-es": "^4.17.21",
+		"prettier": "^3.1.1",
+		"typescript": "^5.2.2",
+		"vite": "^5.0.8"
 	}
 }
