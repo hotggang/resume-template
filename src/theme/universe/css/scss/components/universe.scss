@@ -327,3 +327,51 @@
 .universe__content-QnATitle{
     margin: 0 0 10px 0;
 }
+
+
+//반응형
+@media screen and (max-width: 900px){
+
+    //프로필 이미지 영역
+    .universe__content-header{
+        margin: 0 0 40px 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .universe__content-headerProfile{
+        position: relative;
+        margin: 0 0 40px 0;
+        text-align: center;
+
+        .sample{
+            top: 50%;
+            left: 50%;
+            margin-left: -85px;
+            margin-top: -75px;
+        }
+        .universe{
+            position: inherit;
+            left: 0;
+            margin: 0 auto;
+        }
+    }
+    .universe__content-headerTitle{
+        text-align: center;
+
+        .techStack{
+            justify-content: center;
+        }
+    }
+    
+    .categoryContainer{
+        gap: 20px;
+    }
+
+    .categorySubtitle{
+        flex-wrap: wrap;
+
+        .divider{
+            visibility: hidden;
+        }
+    }
+}
