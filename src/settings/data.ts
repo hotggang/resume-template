@@ -22,7 +22,7 @@ export const BASIC = {
 };
 
 export const TECH_STACK: TechStack = {
-	skills: ['React', 'Photoshop', 'Javascript'],
+	skills: ['React', 'Photoshop', 'Javascript', 'Html', 'SCSS', 'Figma', 'Typescript'],
 };
 
 export const WORK_EXPERIENCES: WorkExperience[] = [

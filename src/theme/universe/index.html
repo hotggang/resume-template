@@ -79,8 +79,10 @@
 						{{#each workExperiences}}
 						<div class="universe__content-category-WorkExperience categoryContents">
 							<div class="universe__content-category-WorkExperienceTitle categorySubtitle">
-								<h3 class="company front">{{companyName}}</h3>
-								<div class="divider"></div>
+								<div class="subtitleContainer">
+									<h3 class="company front">{{companyName}}</h3>
+									<div class="divider"></div>
+								</div>
 								<div class="universe__content-category-WorkExperienceDetail categoryBelong">
 									<h3 class="role back">{{role}}</h3>
 									<div class="dividerCircle"></div>
@@ -151,7 +153,7 @@
 					</div>
 					{{/if}}
 					{{#if portfolio}}
-					<div class="universe__content-category-portfolioLink categoryContainer">
+					<div class="universe__content-category-portfolioLink categoryContainer portfolioWrap">
 						<div class="universe__content-category-portfolioTitle categoryTitle">
 							<h3 class="links">포트폴리오</h3>
 							<div class="titleLine"></div>
