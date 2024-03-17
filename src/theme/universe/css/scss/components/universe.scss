@@ -330,7 +330,7 @@
 
 
 //반응형
-@media screen and (max-width: 900px){
+@media screen and (max-width: 1200px){
 
     //프로필 이미지 영역
     .universe__content-header{
@@ -378,5 +378,12 @@
         .divider{
             visibility: hidden;
         }
+    }
+}
+
+@media screen and (max-width: 768px){
+
+    .universe__content{
+        padding: 20px;
     }
 }
